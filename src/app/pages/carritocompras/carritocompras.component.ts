@@ -3,6 +3,8 @@ import { CarritoService } from '../../services/carrito.service';
 import { Producto } from '../../models/producto.model';
 import { Router } from '@angular/router';
 import { summaryFileName } from '@angular/compiler/src/aot/util';
+import { CarritoComponent } from '../../shared/carrito/carrito.component';
+import { ProductoCarrito } from '../../models/productoCarrito.model';
 
 @Component({
   selector: 'app-carritocompras',
@@ -14,7 +16,7 @@ export class CarritocomprasComponent implements OnInit {
   constructor(public carritoService:CarritoService,public router:Router) { }
 
 
-  productos:Producto[]=[] ;
+  productos:ProductoCarrito[]=[] ;
   vista:boolean = false;
   total:number = 0;
 
@@ -34,19 +36,19 @@ export class CarritocomprasComponent implements OnInit {
     }
   }
 
-cargarCarro(){
+  cargarCarro(){
    this.productos = this.carritoService.carrito ;
-}
+  }
 
 suma(){
   for (let item of this.productos) {
-    this.total = item.precio + this.total;
+    this.total = (item.precio *item.cantidad) + this.total;
   }
   console.log(this.total);
 }
 
-eliminar(producto:Producto){
-  let index = this.productos.findIndex(item => item._id === producto._id)
+eliminar(producto:ProductoCarrito){
+  let index = this.productos.findIndex(item => item.idProducto === producto.idProducto)
   this.carritoService.carrito.splice(index,1);
   this.vistaver();
   this.cargarCarro();

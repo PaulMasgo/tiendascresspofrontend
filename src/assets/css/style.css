@@ -85,11 +85,11 @@ img {
 /*--header--*/
 
 .header-top-w3layouts {
-    padding: 10px 0;
+    padding: 20px 0;
 }
 
 .logo-w3 {
-    width: 50%;
+    width: 250%;
     float: left;
 }
 
@@ -133,7 +133,7 @@ img {
 .phone-w3l {
     text-align: right;
     width: 50%;
-    float: left;
+    float: right;
 }
 
 .phone-w3l ul {
@@ -1037,7 +1037,7 @@ ul.wmuSliderPagination {
     -moz-transition: 0.5s all;
     -o-transition: 0.5s all;
     -ms-transition: 0.5s all;
-    color: #000;
+    color: white;
 }
 
 .fgd1 i.fa.fa-twitter {
@@ -2771,7 +2771,7 @@ p.w3-agile {
         width: 24%;
     }
     .footer-grids {
-        width: 25%;
+        width: 205%;
         float: left;
     }
     .footer a h3 {
@@ -2782,9 +2782,8 @@ p.w3-agile {
         left: 128px;
     }
     .footer img {
-        width: 20%;
-        top: 2px;
-        left: -22px;
+        widows: 500px;
+        top: 5px;
     }
     .fgd1 .fa {
         font-size: 13px;
@@ -2912,7 +2911,7 @@ p.w3-agile {
         padding: 25px;
     }
     .footer-grids {
-        width: 50%;
+        width: 250%;
         float: left;
         height: 200px;
     }
@@ -3596,7 +3595,7 @@ p.w3-agile {
         right: 3px;
     }
     .footer-grids {
-        width: 100%;
+        width: 200%;
         float: left;
         height: inherit;
     }
@@ -3604,7 +3603,7 @@ p.w3-agile {
         margin-bottom: 30px;
     }
     .footer img {
-        width: 9%;
+        width: 200%;
     }
     .team-img .overlay {
         padding: 5.5em 0em;

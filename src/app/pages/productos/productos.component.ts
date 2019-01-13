@@ -18,9 +18,7 @@ export class ProductosComponent implements OnInit {
    this.cargarProductos();
   }
 
-  agregarProducto(producto:Producto){
-    this._carritoService.carrito.push(producto);
-  }
+
 
   cargarProductos(){
     this._productoService.buscarProductos()
