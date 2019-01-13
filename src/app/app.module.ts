@@ -15,6 +15,10 @@ import { AboutComponent } from './pages/about/about.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { LoginComponent } from './pages/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CarritocomprasComponent } from './pages/carritocompras/carritocompras.component';
+import { CarritoComponent } from './shared/carrito/carrito.component';
 
 @NgModule({
   declarations: [
@@ -27,11 +31,15 @@ import { LoginComponent } from './pages/login/login.component';
     AboutComponent,
     FooterComponent,
     ContactComponent,
-    LoginComponent
+    LoginComponent,
+    CarritocomprasComponent,
+    CarritoComponent
   ],
   imports: [
     BrowserModule,
-    APP_ROUTES
+    APP_ROUTES,
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductoService } from 'src/app/services/producto.service';
+import { Producto } from 'src/app/models/producto.model';
+import { CarritoService } from '../../services/carrito.service';
 
 @Component({
   selector: 'app-productos',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductosComponent implements OnInit {
 
-  constructor() { }
+  productos:Producto[];
+
+  constructor(public _productoService:ProductoService,public _carritoService:CarritoService) { }
 
   ngOnInit() {
+   this.cargarProductos();
+  }
+
+  agregarProducto(producto:Producto){
+    this._carritoService.carrito.push(producto);
+  }
+
+  cargarProductos(){
+    this._productoService.buscarProductos()
+    .subscribe((res:any) => this.productos = res.Productos)
   }
 
 }

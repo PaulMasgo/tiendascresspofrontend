@@ -1,0 +1,57 @@
+<div *ngIf="!vista">
+    <br><br><br><br><br>
+    <h1>No tienes productos agregados</h1>
+    <br><br><br><br><br>
+</div>
+
+<div class="check-out" *ngIf="vista">
+    <div class="container">
+        <div class="spec ">
+            <h3>Productos agragdos al carrito</h3>
+            <div class="ser-t">
+                <b></b>
+                <span><i></i></span>
+                <b class="line"></b>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function(c) {
+                $('.close1').on('click', function(c) {
+                    $('.cross').fadeOut('slow', function(c) {
+                        $('.cross').remove();
+                    });
+                });
+            });
+        </script>
+        <table class="table ">
+            <tbody>
+                <tr>
+                    <th class="t-head head-it ">Prenda</th>
+                    <th class="t-head">Nombre</th>
+                    <th class="t-head">Cantidad</th>
+                    <th class="t-head">Precio</th>
+                    <th class="t-head">Acción</th>
+                </tr>
+                <tr class="cross" *ngFor="let item of productos">
+                    <td class="t-data">
+                        <a href="single.html" class="at-in">
+                            <img [src]="item.imagen.principal" class="img-50 img-circle" alt="">
+                        </a>
+
+                        <div class="clearfix"> </div>
+                        <div class="close1"> <i class="fa fa-times" aria-hidden="true"></i></div>
+                    </td>
+                    <td class="ring-in t-data">{{item.nombre}}</td>
+                    <td class="t-data">{{item.nombre}}</td>
+                    <td class="t-data">S/.{{item.precio}}</td>
+                    <td class="t-data">
+                        <button type="button" class="w3ls-cart pw3ls-cart" (click)="eliminar(item)"> <a class=" add-1">Eliminar</a></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table><br>
+        <div>
+            <h2>Total : S/.{{total}}</h2>
+        </div>
+    </div>
+</div>

@@ -34,24 +34,20 @@
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <ul class="multi-column-dropdown">
-
-                                            <li><a href="women.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Women's Clothing</a></li>
-                                            <li><a href="men.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Men's Clothing</a></li>
+                                            <li><a [routerLink]="['/productos']"><i class="fa fa-angle-right" aria-hidden="true"></i>Todo</a></li>
+                                            <li><a href="men.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Camisas</a></li>
                                             <li>
-                                                <a href="kids.html"> <i class="fa fa-angle-right" aria-hidden="true"></i>Kid's Wear</a>
+                                                <a href="kids.html"> <i class="fa fa-angle-right" aria-hidden="true"></i>Pantalones</a>
                                             </li>
-                                            <li><a href="party.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Party Wear</a></li>
-
+                                            <li><a href="party.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Polos</a></li>
                                         </ul>
-
                                     </div>
                                     <div class="col-sm-4">
                                         <ul class="multi-column-dropdown">
-                                            <li><a href="casuals.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Casuals</a></li>
-                                            <li><a href="night.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Night Wear</a></li>
-                                            <li><a href="formals.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Formals</a></li>
-                                            <li><a href="inner.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Inner Wear</a></li>
-
+                                            <li><a href="casuals.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Chompas</a></li>
+                                            <li><a href="night.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Casacas</a></li>
+                                            <li><a href="formals.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Gorros</a></li>
+                                            <li><a href="inner.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Accesorios</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-4 w3l">
@@ -128,7 +124,7 @@
                 <form action="#" method="post" class="last">
                     <input type="hidden" name="cmd" value="_cart" />
                     <input type="hidden" name="display" value="1" />
-                    <button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+                    <button class="w3view-cart" type="button" [routerLink]="['/carrito']" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
                 </form>
             </div>
         </div>

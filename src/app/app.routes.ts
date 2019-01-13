@@ -5,15 +5,17 @@ import { ProductosComponent } from './pages/productos/productos.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { LoginComponent } from './pages/login/login.component';
+import { CarritocomprasComponent } from './pages/carritocompras/carritocompras.component';
 
 const appRoutes :Routes = [
     {path:'productos',component:ProductosComponent},
     {path:'home',component:HomeComponent},
     {path:'about',component:AboutComponent},
     {path:'contacto',component:ContactComponent},
+    {path:'carrito',component:CarritocomprasComponent},
     {path:'login',component:LoginComponent},
     {path: '',  redirectTo:'/home',pathMatch:'full'},
-    {path:'**',component:NotfoundComponent},
+    {path:'**',component:NotfoundComponent}
     
 ];
 
