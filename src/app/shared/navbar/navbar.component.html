@@ -7,7 +7,17 @@
             </div>
             <div class="col-md-6 phone-w3l">
                 <ul>
-                    <a class="agile-icon" [routerLink]="['/login']"><i class="fa fa-user"></i>&nbsp; Iniciar Sesion</a>
+                    <a *ngIf="!_usuarioService.UsuarioActivo" class="agile-icon" [routerLink]="['/login']"><i class="fa fa-user"></i>&nbsp; Iniciar Sesion</a>
+                    <ul *ngIf="_usuarioService.UsuarioActivo" class="nav pull-right">
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Bienvenido, {{_usuarioService.UsuarioActivo.nombre}} <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/user/preferences"><i class="fa fa-user"></i> Mi perfil</a></li>
+                                <li><a href="/help/support"><i class="fa fa-heart"></i> Favoritos</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/auth/logout"><i class="fa fa-close"></i> Cerrar Sesion</a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </ul>
             </div>
             <div class="clearfix"></div>
@@ -52,7 +62,7 @@
                                         </ul>
                                     </div>
                                     <div class="col-sm-4 w3l">
-                                        <a href="women.html"><img src="assets/images/menu1.jpg" class="img-responsive" alt=""></a>
+                                        <a href="women.html"><img src="assets/imagenesCresspo/pantalomabesor.jpg" class="img-responsive" alt=""></a>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -64,29 +74,15 @@
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <ul class="multi-column-dropdown">
-                                            <li><a href="jewellery.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Jewellery </a></li>
-                                            <li><a href="watches.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Watches</a></li>
-                                            <li><a href="cosmetics.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Cosmetics</a></li>
-                                            <li><a href="deos.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Deo & Perfumes</a></li>
+                                            <li><a href="jewellery.html"><i class="fa fa-angle-right" aria-hidden="true"></i>lNoticias</a></li>
+                                            <li><a href="watches.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Tips</a></li>
+                                            <li><a href="cosmetics.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Recomendaciones</a></li>
+                                            <li><a href="deos.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Moda mundial</a></li>
 
                                         </ul>
-
-                                    </div>
-                                    <div class="col-sm-4">
-
-                                        <ul class="multi-column-dropdown">
-                                            <li>
-                                                <a href="haircare.html"> <i class="fa fa-angle-right" aria-hidden="true"></i>Hair Care </a>
-                                            </li>
-                                            <li><a href="shoes.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Shoes</a></li>
-                                            <li><a href="handbags.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Handbags</a></li>
-                                            <li><a href="skincare.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Skin care</a></li>
-
-                                        </ul>
-
                                     </div>
                                     <div class="col-sm-4 w3l">
-                                        <a href="jewellery.html"><img src="assets/images/menu2.jpg" class="img-responsive" alt=""></a>
+                                        <a href="jewellery.html"><img src="assets/imagenesCresspo/logoCresspomen.jpg" class="img-responsive" alt=""></a>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -98,20 +94,6 @@
                 </div>
             </nav>
         </div>
-        <script>
-            $(document).ready(function() {
-                $(".dropdown").hover(
-                    function() {
-                        $('.dropdown-menu', this).stop(true, true).slideDown("fast");
-                        $(this).toggleClass('open');
-                    },
-                    function() {
-                        $('.dropdown-menu', this).stop(true, true).slideUp("fast");
-                        $(this).toggleClass('open');
-                    }
-                );
-            });
-        </script>
         <div class="col-md-4 search-agileinfo">
             <form action="#" method="post">
                 <input type="search" name="Search" placeholder="Buscar prenda ..." required="">

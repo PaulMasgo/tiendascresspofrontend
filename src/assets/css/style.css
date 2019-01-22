@@ -236,7 +236,7 @@ button.search {
     height: 43px;
     outline: none;
     box-shadow: none;
-    background: #00e58b;
+    background: #0a0a0a;
     padding: 0;
     border-radius: inherit;
     -webkit-appearance: none;
@@ -246,7 +246,7 @@ button.search {
 }
 
 .btn-default:hover {
-    background-color: #000;
+    background-color: rgb(68, 179, 77);
     border: none;
 }
 
@@ -277,9 +277,9 @@ button.w3view-cart:focus {
 }
 
 .sub-banner {
-    background: url(../images/banner2.jpg) no-repeat 0px 0px;
+    background: url(../imagenesCresspo/portada.png) no-repeat 0px 0px;
     background-size: cover;
-    min-height: 280px;
+    min-height: 450px;
 }
 
 .my-banner2 {
@@ -1635,7 +1635,7 @@ p.sbmincart-empty-text {
 /*-- about-gallery --*/
 
 .about-w3ls-row {
-    background: #00e58b;
+    background: #0d0e0d;
     margin-right: 5em;
     padding: 1.5em;
 }
@@ -1824,7 +1824,7 @@ p.sbmincart-empty-text {
 /*-- //team --*/
 
 .about-bottom {
-    background: url(../images/abtbtm.jpg) no-repeat 0px 0px;
+    background: url(../imagenesCresspo/portada2.jpg) no-repeat 0px 0px;
     background-size: cover;
     padding: 100px 0;
     background-attachment: fixed;
@@ -2328,8 +2328,9 @@ p.single-price-text {
     background: none;
 }
 
+.form-w3agile input[type="button"],
 .form-w3agile input[type="submit"] {
-    background: #00e58b;
+    background: black;
     color: #FFFFFF;
     text-align: center;
     padding: 10px 0;
@@ -2341,8 +2342,9 @@ p.single-price-text {
     margin-bottom: 30px;
 }
 
+.form-w3agile input[type="button"]:hover,
 .form-w3agile input[type="submit"]:hover {
-    background: #000;
+    background: #00e58b;
 }
 
 .forg a {

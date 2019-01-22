@@ -1,0 +1,47 @@
+<div class="login">
+
+    <div class="main-agileits">
+        <div class="form-w3agile">
+            <h3>
+                <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;">Registro</font>
+                </font>
+            </h3>
+            <form action="#" method="post">
+                <div class="key">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <input type="text" name="Username" #Nombre required="" placeholder="Nombres">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="key">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <input type="text" name="Username" #Apellido required="" placeholder="Apellidos">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="key">
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                    <input type="text" name="Username" #Telefono required="" placeholder="Telefono">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="key">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <input type="text" name="Email" #Correo required="" placeholder="Email">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="key">
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                    <input type="password" name="Password" #password required="" placeholder="Cntraseña">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="key">
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                    <input type="password" name="Confirm Password" #password2 required="" placeholder="Repita la contraseña">
+                    <div class="clearfix"></div>
+                </div>
+                <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;"><input type="button" value="Registro" (click)="validar(Nombre.value,Apellido.value,Correo.value,Telefono.value,password.value,password2.value)"></font>
+                </font>
+            </form>
+        </div>
+    </div>
+</div>

@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CarritocomprasComponent } from './pages/carritocompras/carritocompras.component';
 import { CarritoComponent } from './shared/carrito/carrito.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CarritoComponent } from './shared/carrito/carrito.component';
     ContactComponent,
     LoginComponent,
     CarritocomprasComponent,
-    CarritoComponent
+    CarritoComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
