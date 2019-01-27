@@ -6,10 +6,8 @@
                 <div class="w3ls_dresses_grid_left_grid_sub">
                     <div class="ecommerce_dres-type">
                         <ul>
-                            <li><a href="men.html">Casuals</a></li>
-                            <li><a href="men.html">Slacks</a></li>
-                            <li><a href="men.html">Jeans</a></li>
-                            <li><a href="men.html">Shirts</a></li>
+                            <li *ngFor="let cat of categorias"><a (click)="Carproductocategoria(cat._id)">
+                                {{cat.nombre}}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -19,12 +17,12 @@
                 <div class="w3ls_dresses_grid_left_grid_sub">
                     <div class="ecommerce_color">
                         <ul>
-                            <li><a href="#"><i></i> Red(5)</a></li>
-                            <li><a href="#"><i></i> Brown(2)</a></li>
-                            <li><a href="#"><i></i> Yellow(3)</a></li>
-                            <li><a href="#"><i></i> Violet(6)</a></li>
-                            <li><a href="#"><i></i> Orange(2)</a></li>
-                            <li><a href="#"><i></i> Blue(1)</a></li>
+                            <li><a href="#"><i></i> Rojo</a></li>
+                            <li><a href="#"><i></i> Marron</a></li>
+                            <li><a href="#"><i></i> Amarillo</a></li>
+                            <li><a href="#"><i></i> Azul</a></li>
+                            <li><a href="#"><i></i> Naranja</a></li>
+                            <li><a href="#"><i></i> Negro</a></li>
                         </ul>
                     </div>
                 </div>
@@ -33,9 +31,9 @@
         <div class="col-md-8 col-sm-8 women-dresses">
             <div class="women-set1" *ngFor="let item of productos">
                 <div class="col-md-4 women-grids wp1 animated wow slideInUp" data-wow-delay=".5s">
-                    <a href="single.html">
+                    <a [routerLink]="['/product',item._id]">
                         <div class="product-img">
-                            <img [src]="item.imagen.principal" alt="" />
+                            <img [src]="item.imagen.principal | imagenes" alt="" />
                             <div class="p-mask">
                                 <form action="#" method="post">
                                     <input type="hidden" name="cmd" value="_cart" />

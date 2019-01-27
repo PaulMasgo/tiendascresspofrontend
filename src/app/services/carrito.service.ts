@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Producto } from '../models/producto.model';
 import { ProductoCarrito } from '../models/productoCarrito.model';
 import { isNgTemplate } from '@angular/compiler';
+import swal from 'sweetalert';
 
 @Injectable({
   providedIn: 'root'
@@ -18,9 +19,10 @@ export class CarritoService {
     if(encontrado){
       let index = this.carrito.findIndex(item => item.idProducto == producto._id);
       this.carrito[index].cantidad = this.carrito[index].cantidad + 1 ;
+      swal('Aviso','producto agregado nuevamente','warning')
     } else{
       this.carrito.push(carritoItem);
-      console.log(this.carrito);
+      swal('Realizado','Producto agregado','success')
     }
   }
 

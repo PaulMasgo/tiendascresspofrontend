@@ -10,7 +10,8 @@ export class Producto {
         public categoria:Categoria,
         public _id?:string,
         public estado?:boolean,
-        public imagen?:Imagen
+        public imagen?:Imagen,
+        public color?:string
     ){
     
     }

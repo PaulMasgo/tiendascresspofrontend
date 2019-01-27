@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Usuario } from '../models/usuario.models';
 import { HttpClient } from '@angular/common/http';
-import swal from 'sweetalert';
+import { URL_SERVICIOS } from '../config/config.moule';
 
 @Injectable({
   providedIn: 'root'
@@ -13,13 +13,18 @@ export class UsuarioService {
   UsuarioActivo:Usuario;
   
     login(usuario:Usuario){
-      let url = 'http://localhost:3000' + '/login'
+      let url = URL_SERVICIOS + '/login'
       return this.http.post(url,usuario); 
    }  
 
    registrar(usuario:Usuario){
-     let url = 'http://localhost:3000' + '/usuario'
+     let url = URL_SERVICIOS + '/usuario'
     return this.http.post(url,usuario); 
+   }
+
+   verificar(id:string,codigo:string){
+    let url = URL_SERVICIOS + '/usuario/verificar/' + id;
+    return this.http.put(url,{codigoRegistro:codigo}); 
    }
 
 }

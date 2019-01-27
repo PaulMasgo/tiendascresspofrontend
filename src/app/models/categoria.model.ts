@@ -3,7 +3,7 @@ export class Categoria {
         public nombre:string,
         public descripcion?:string,
         public imagen?:string,
-        public id?:string
+        public _id?:string
     ){
 
     }     

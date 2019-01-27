@@ -20,6 +20,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CarritocomprasComponent } from './pages/carritocompras/carritocompras.component';
 import { CarritoComponent } from './shared/carrito/carrito.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { ImagenesPipe } from './pipes/imagenes.pipe';
+import { ViewproductComponent } from './pages/viewproduct/viewproduct.component';
+import { VerificationComponent } from './pages/verification/verification.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { RegisterComponent } from './pages/register/register.component';
     LoginComponent,
     CarritocomprasComponent,
     CarritoComponent,
-    RegisterComponent
+    RegisterComponent,
+    ImagenesPipe,
+    ViewproductComponent,
+    VerificationComponent
   ],
   imports: [
     BrowserModule,

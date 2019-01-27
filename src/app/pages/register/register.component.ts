@@ -54,8 +54,8 @@ export class RegisterComponent implements OnInit {
     this._usuarioService.registrar(usuario)
     .subscribe((res:any) => {
       if(res.ok === true){
-        swal('Bienvenido',`Hola ${res.usuario.nombre}` , 'success');
-        this.router.navigate(['/login']);
+        swal('Revisa tu correo','Se envio el codigo de verficacion al correo ingresado' , 'warning');
+        this.router.navigate(['/verification',res.usuario._id]);
       }else{
         console.log(res);
         swal('Error','Upps algo mal intentalo nuevamente');
