@@ -54,10 +54,10 @@
                     </div>
                     <p class="single-price-text">
                         <font style="vertical-align: inherit;">
-                            <font style="vertical-align: inherit;">TALLAS DIPONIBLES</font>&nbsp;
-                            <font style="vertical-align: inherit;">(S) </font>
-                            <font style="vertical-align: inherit;">(M) </font>
-                            <font style="vertical-align: inherit;">(XL)</font>
+                            <font style="vertical-align: inherit;">TALLAS DIPONIBLES:&nbsp;</font>&nbsp;&nbsp;
+                            <select (change)="tallaElejida($event.target.value)">
+                                <option *ngFor="let item of tallas;let i = index" [value]="i">{{item.nombre}}</option>
+                            </select>
                         </font>
                     </p>
                     <form>
@@ -65,9 +65,9 @@
                         <input type="hidden" name="add" value="1">
                         <input type="hidden" name="w3ls1_item" value="Handbag">
                         <input type="hidden" name="amount" value="540.00">
-                        <button type="button" class="w3ls-cart" (click)="_carritoService.agregarProducto(producto)"><i class="fa fa-cart-plus" aria-hidden="true" ></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Añadir a la cesta</font></font></button>
+                        <button type="button" class="w3ls-cart" (click)="_carritoService.agregarProducto(producto,tallas[indextalla])"><i class="fa fa-cart-plus" aria-hidden="true" ></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Añadir a la cesta</font></font></button>
                     </form>
-                    <button class="w3ls-cart w3ls-cart-like"><i class="fa fa-heart-o" aria-hidden="true" (click)="_carritoService.agregarProducto(producto)"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Añadir a la lista de deseos</font></font></button>
+                    <button class="w3ls-cart w3ls-cart-like" (click)="addfavorite()"><i class="fa fa-heart-o" aria-hidden="true" ></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Añadir a la lista de deseos</font></font></button>
                 </div>
                 <div class="clearfix"> </div>
             </div>

@@ -19,9 +19,11 @@ export class ProductosComponent implements OnInit {
 
   ngOnInit() {
    this.cargarProductos();
-   this.CargarCategorias()
+   console.log(this.productos);
+   this.CargarCategorias();
   }
-
+  
+  
 
   CargarCategorias(){
     this._categoriaService.listarCategorias().subscribe

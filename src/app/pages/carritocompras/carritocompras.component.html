@@ -20,20 +20,26 @@
                     <th class="t-head head-it ">Prenda</th>
                     <th class="t-head">Nombre</th>
                     <th class="t-head">Cantidad</th>
+                    <th class="t-head">Talla</th>
                     <th class="t-head">Precio</th>
                     <th class="t-head">Acción</th>
                 </tr>
-                <tr class="cross" *ngFor="let item of productos">
+                <tr class="cross" *ngFor="let item of productos;let i = index">
                     <td class="t-data">
                         <a href="single.html" class="at-in">
-                            <img [src]="item.imagen | imagenes" class="img-50 img-circle" alt="">
+                            <img [src]="item.Producto.imagen | imagenes" class="img-50 img-circle" alt="">
                         </a>
                     </td>
                     <td class="ring-in t-data">{{item.nombre}}</td>
-                    <td class="t-data">{{item.cantidad}}</td>
+                    <td class="t-data"><input type="number" (click)="cambiarCant(i,cant.value)" #cant [max]="item.cantidadDisponible" min="1" [value]="item.cantidad"></td>
+                    <td class="t-data">{{item.talla}}</td>
                     <td class="t-data">S/.{{item.precio}}</td>
                     <td class="t-data">
                         <button type="button" class="w3ls-cart pw3ls-cart" (click)="eliminar(item)"> <a class=" add-1">Eliminar</a></button>
+                    </td>
+                </tr>
+                <tr class="cross">
+                    <td colspan="3"><button type="button" (click)="comprobar()" class="w3ls-cart pw3ls-cart"> <a class=" add-1">Realizar Pago</a></button>
                     </td>
                 </tr>
             </tbody>

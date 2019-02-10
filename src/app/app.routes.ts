@@ -9,6 +9,10 @@ import { CarritocomprasComponent } from './pages/carritocompras/carritocompras.c
 import { RegisterComponent } from './pages/register/register.component';
 import { ViewproductComponent } from './pages/viewproduct/viewproduct.component';
 import { VerificationComponent } from './pages/verification/verification.component';
+import { ProductComponent } from './shared/product/product.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { PaymentComponent } from './pages/payment/payment.component';
+import { FavoritesComponent } from './pages/favorites/favorites.component';
 
 const appRoutes :Routes = [
     {path:'productos',component:ProductosComponent},
@@ -18,8 +22,12 @@ const appRoutes :Routes = [
     {path:'carrito',component:CarritocomprasComponent},
     {path:'login',component:LoginComponent},
     {path:'register',component:RegisterComponent},
+    {path:'profile',component:ProfileComponent},
+    {path:'payment',component:PaymentComponent},
+    {path:'www',component:ProductComponent},
     {path:'verification/:id',component:VerificationComponent},
     {path:'product/:id',component:ViewproductComponent},
+    {path:'favoritos',component:FavoritesComponent},
     {path: '',  redirectTo:'/home',pathMatch:'full'},
     {path:'**',component:NotfoundComponent}
     

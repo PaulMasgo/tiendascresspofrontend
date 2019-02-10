@@ -1,0 +1,43 @@
+
+
+<div *ngIf="favoritos.length == 0 ">
+  <br><br><br><br><br>
+  <h1>Aqui podras tus productos Guardados </h1>
+  <br><br><br><br><br>
+</div>
+
+<div class="check-out" *ngIf="favoritos.length >= 1">
+  <div class="container">
+      <div class="spec ">
+          <h3>Productos Guardados</h3>
+          <div class="ser-t">
+              <b></b>
+              <span><i></i></span>
+              <b class="line"></b>
+          </div>
+      </div>
+      <table class="table ">
+          <tbody>
+              <tr>
+                  <th class="t-head head-it ">Prenda</th>
+                  <th class="t-head">Nombre</th>
+                  <th class="t-head">Precio</th>
+                  <th class="t-head">Acción</th>
+              </tr>
+              <tr class="cross" *ngFor="let item of favoritos;let i = index">
+                  <td class="t-data">
+                    <a href="single.html" class="at-in">
+                        <img [src]="item.Producto.imagen.principal | imagenes" class="img-50 img-circle" alt="">
+                    </a>
+                  </td>
+                  <td class="t-data">{{item.Producto.nombre}}</td>
+                  <td class="t-data">S/.{{item.Producto.precio}}</td>
+                  <td class="t-data">
+                      <button type="button" class="btn btn-primary " (click)="eliminar(item._id,i)"> Eliminar </button> &nbsp;
+                      <button type="button" class="btn btn-danger " [routerLink]="['/product',item.Producto._id]"  > Ver  </button>
+                  </td>
+              </tr>
+          </tbody>
+      </table><br>
+  </div>
+</div>

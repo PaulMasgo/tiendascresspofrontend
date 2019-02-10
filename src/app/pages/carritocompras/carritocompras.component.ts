@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { summaryFileName } from '@angular/compiler/src/aot/util';
 import { CarritoComponent } from '../../shared/carrito/carrito.component';
 import { ProductoCarrito } from '../../models/productoCarrito.model';
+import { UsuarioService } from '../../services/usuario.service';
 
 @Component({
   selector: 'app-carritocompras',
@@ -13,7 +14,7 @@ import { ProductoCarrito } from '../../models/productoCarrito.model';
 })
 export class CarritocomprasComponent implements OnInit {
 
-  constructor(public carritoService:CarritoService,public router:Router) { }
+  constructor(public carritoService:CarritoService,public router:Router,public _usuarioService:UsuarioService) { }
 
 
   productos:ProductoCarrito[]=[] ;
@@ -36,6 +37,15 @@ export class CarritocomprasComponent implements OnInit {
     }
   }
 
+  comprobar(){
+    if( this._usuarioService.UsuarioActivo==null){
+      this.router.navigate(['login']);
+    }else{
+      this.router.navigate(['payment']);
+    }
+   
+  }
+
   cargarCarro(){
    this.productos = this.carritoService.carrito ;
   }
@@ -44,7 +54,14 @@ suma(){
   for (let item of this.productos) {
     this.total = (item.precio *item.cantidad) + this.total;
   }
+  this.carritoService.total = this.total;
   console.log(this.total);
+}
+
+cambiarCant(index,cantidad){
+  this.productos[index].cantidad = cantidad;
+  this. total =0;
+  this.suma();
 }
 
 eliminar(producto:ProductoCarrito){

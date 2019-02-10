@@ -1,60 +1,10 @@
 <div class="content">
     <div class="container">
-        <div class="col-md-4 w3ls_dresses_grid_left">
-            <div class="w3ls_dresses_grid_left_grid">
-                <h3>Categories</h3>
-                <div class="w3ls_dresses_grid_left_grid_sub">
-                    <div class="ecommerce_dres-type">
-                        <ul>
-                            <li *ngFor="let cat of categorias"><a (click)="Carproductocategoria(cat._id)">
-                                {{cat.nombre}}</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="w3ls_dresses_grid_left_grid">
-                <h3>Color</h3>
-                <div class="w3ls_dresses_grid_left_grid_sub">
-                    <div class="ecommerce_color">
-                        <ul>
-                            <li><a href="#"><i></i> Rojo</a></li>
-                            <li><a href="#"><i></i> Marron</a></li>
-                            <li><a href="#"><i></i> Amarillo</a></li>
-                            <li><a href="#"><i></i> Azul</a></li>
-                            <li><a href="#"><i></i> Naranja</a></li>
-                            <li><a href="#"><i></i> Negro</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-8 col-sm-8 women-dresses">
-            <div class="women-set1" *ngFor="let item of productos">
-                <div class="col-md-4 women-grids wp1 animated wow slideInUp" data-wow-delay=".5s">
-                    <a [routerLink]="['/product',item._id]">
-                        <div class="product-img">
-                            <img [src]="item.imagen.principal | imagenes" alt="" />
-                            <div class="p-mask">
-                                <form action="#" method="post">
-                                    <input type="hidden" name="cmd" value="_cart" />
-                                    <input type="hidden" name="add" value="1" />
-                                    <input type="hidden" name="w3ls1_item" value="Casual shirt" />
-                                    <input type="hidden" name="amount" value="50.00" />
-                                    <button type="submit" class="w3ls-cart pw3ls-cart" (click)="_carritoService.agregarProducto(item)"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                </form>
-                            </div>
-                        </div>
-                    </a>
-                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
-                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
-                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
-                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
-                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
-                    <h4>{{item.nombre}}</h4>
-                    <h5>S/.{{item.precio}}</h5>
-                </div>
-
-            </div>
-        </div>
+        <h1>Todos nuestros Productos</h1><br>
+        <ul class="resp-tabs-list">
+            <li class="resp-tab-item"><span>Todos</span></li>
+            <li class="resp-tab-item" *ngFor="let cat of categorias" (click)="Carproductocategoria(cat._id)"><span>{{cat.nombre}}</span></li>
+        </ul><br>
+        <app-product *ngFor="let item of productos" [imagenprincipal]="item.imagen.principal" [imagenSecunadria]="item.imagen.lado1" [nombre]="item.nombre" [precio]="item.precio" [id]="item._id"></app-product>
     </div>
 </div>

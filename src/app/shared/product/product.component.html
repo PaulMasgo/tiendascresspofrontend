@@ -1,0 +1,20 @@
+<div class="col-md-3 col-sm-6">
+    <div class="product-grid2">
+        <div class="product-image2">
+            <a [routerLink]="['/product',id]">
+                <img class="pic-1" [src]="imagenprincipal | imagenes">
+                <img class="pic-2" [src]="imagenSecunadria | imagenes">
+            </a>
+            <ul class="social">
+                <li><a [routerLink]="['/product',id]" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
+                <!-- <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                <li><a href="#" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li> -->
+            </ul>
+            <a class="add-to-cart" href="">Agregar al carro</a>
+        </div>
+        <div class="product-content">
+            <h3 class="title"><a href="#">{{nombre}}}</a></h3>
+            <span class="price">S/. {{precio}}</span>
+        </div>
+    </div>
+</div>

@@ -23,6 +23,10 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ImagenesPipe } from './pipes/imagenes.pipe';
 import { ViewproductComponent } from './pages/viewproduct/viewproduct.component';
 import { VerificationComponent } from './pages/verification/verification.component';
+import { ProductComponent } from './shared/product/product.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { PaymentComponent } from './pages/payment/payment.component';
+import { FavoritesComponent } from './pages/favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,11 @@ import { VerificationComponent } from './pages/verification/verification.compone
     RegisterComponent,
     ImagenesPipe,
     ViewproductComponent,
-    VerificationComponent
+    VerificationComponent,
+    ProductComponent,
+    ProfileComponent,
+    PaymentComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,
