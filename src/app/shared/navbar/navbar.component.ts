@@ -35,6 +35,7 @@ export class NavbarComponent implements OnInit {
   });
   this.verificarStorage();
   this.cargarfavoritos();
+  this.cargarCarro();
   }
 
   verificarStorage(){
@@ -64,6 +65,13 @@ export class NavbarComponent implements OnInit {
     let _favorites;
     this._favoritoService.cargarFavoritos(this._usuarioService.UsuarioActivo._id)
     .subscribe((res:any) => {this._favoritoService.favoritos = res.Favoritos;console.log(this._favoritoService.favoritos );} );
+  }
+
+  cargarCarro(){
+    let carrito = localStorage.getItem('Carrito');
+    if(carrito){
+      this._carritoService.carrito = JSON.parse(carrito);
+    }
   }
 
 }

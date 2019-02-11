@@ -27,6 +27,7 @@ import { ProductComponent } from './shared/product/product.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
+import { AddAddressComponent } from './pages/address/add-address/add-address.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { FavoritesComponent } from './pages/favorites/favorites.component';
     ProductComponent,
     ProfileComponent,
     PaymentComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    AddAddressComponent
   ],
   imports: [
     BrowserModule,

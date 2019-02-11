@@ -23,8 +23,10 @@ export class CarritoService {
       // this.carrito[index].cantidad = this.carrito[index].cantidad + 1 ;
       swal('El producto ya fue agregado','Puede dirigirse al carrito para definir la cantidad','warning')
     } else{
+      localStorage.removeItem('Carrito');
       this.carrito.push(carritoItem);
-      swal('Realizado','Producto agregado','success')
+      swal('Realizado','Producto agregado','success');
+      localStorage.setItem('Carrito',JSON.stringify(this.carrito));
     }
   }
 

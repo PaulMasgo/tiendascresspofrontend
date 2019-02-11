@@ -1,0 +1,46 @@
+<div class="login">
+  <div class="main-agileits">
+      <div class="form-w3agile">
+          <h3>
+              <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Agregar dirección de envío</font>
+              </font>
+          </h3>
+          <form action="#" method="post">
+              <div class="key">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  <input type="text" name="Username" #Departamento required="" placeholder="Departamento">
+                  <div class="clearfix"></div>
+              </div>
+              <div class="key">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  <input type="text" name="Username" #Provincia required="" placeholder="Provincia">
+                  <div class="clearfix"></div>
+              </div>
+              <div class="key">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  <input type="text" name="Username" #Distrito required="" placeholder="Distrito">
+                  <div class="clearfix"></div>
+              </div>
+              <div class="key">
+                  <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                  <input type="text" name="Email" #Direccion required="" placeholder="Direccion">
+                  <div class="clearfix"></div>
+              </div>
+              <div class="key">
+                  <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                  <input type="text" name="Password" #Referencia required="" placeholder="Referencia">
+                  <div class="clearfix"></div>
+              </div>
+              <div class="key">
+                  <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                  <input type="text" name="Confirm Password" #Tipo required="" placeholder="Tipo        Ejm:(casa,departamento,cuarto,etc)">
+                  <div class="clearfix"></div>
+              </div>
+              <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;"><input type="button" value="Registrar Dirección" (click)="regitrarDireccion(Departamento.value,Provincia.value,Distrito.value,Direccion.value,Referencia.value,Tipo.value)"></font>
+              </font>
+          </form>
+      </div>
+  </div>
+</div>

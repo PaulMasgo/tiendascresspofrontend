@@ -65,12 +65,14 @@ cambiarCant(index,cantidad){
 }
 
 eliminar(producto:ProductoCarrito){
+  localStorage.removeItem('Carrito');
   let index = this.productos.findIndex(item => item.idProducto === producto.idProducto)
   this.carritoService.carrito.splice(index,1);
   this.vistaver();
   this.cargarCarro();
   this. total =0;
   this.suma();
+  localStorage.setItem('Carrito',JSON.stringify(this.carritoService.carrito));
 }
 
 }

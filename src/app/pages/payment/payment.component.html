@@ -1,11 +1,27 @@
+<br><br><br><br>
 <div class="row">
     <div class="col-md-6" style="padding-left:  150px;padding-right:  150px;">
         <div>
+            <h3>
+                <h1>Selecione el lugar de entrega</h1>
+                <div *ngIf="direcion.length === 0"><br>
+                    <h4>Actualmente no tiene lugar de envio por favor agrege uno</h4>
+                </div>
+            </h3><br>
+            <div style="text-align: center">
+                <select class="btn btn-dark btn-block" *ngIf="direcion.length >= 1" >
+                     <option value="" *ngFor="let item of direcion"  >{{item.Direccion}} - {{item.Ubigeo.distrito}} - {{item.Ubigeo.provincia}}</option>
+                </select><br>
+                <font style="vertical-align: inherit;" class="form-w3agile">
+                    <font style="vertical-align: inherit;"><input type="button" [routerLink]="['/addaddress','pago']"  value="Agregar Nuevo"></font>
+                </font>
+            </div>  
+        </div>
+        
+        <div>
             <div class="form-w3agile">
                 <h3>
-                    <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;">Ingresar datos de la tarjeta</font>
-                    </font><br>
+                    <h1>Datos de la tarjeta</h1>
                 </h3><br>
                 <form action="#" method="post">
                     <div class="key">
@@ -19,7 +35,7 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="key">
-                        <i class="fa fa-lock" aria-hidden="true"></i> 2 <input type="password" name="Password" required="" #password placeholder="Codigo de Seguridad">
+                        <i class="fa fa-lock" aria-hidden="true"></i><input type="password" name="Password" required="" #password placeholder="Codigo de Seguridad">
                         <div class="clearfix"></div>
                     </div>
                     <font style="vertical-align: inherit;">

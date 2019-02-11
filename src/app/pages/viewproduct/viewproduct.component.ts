@@ -70,8 +70,9 @@ export class ViewproductComponent implements OnInit {
       }).then(res => {
         if(res){
           let favorito = new Favorito( this.producto ,this._usuarioService.UsuarioActivo._id);
-          this._favoritoservice.agregarFavorito(favorito)
-          .subscribe(res => {swal('Agregado','la prenda se gurdo dentro de favoritos','success')})
+            this._favoritoservice.agregarFavorito(favorito)
+            .subscribe(res => {swal('Agregado','la prenda se guardo dentro de favoritos','success')})
+          
         }
       }) 
     }
