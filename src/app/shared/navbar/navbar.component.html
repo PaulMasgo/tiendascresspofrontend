@@ -11,10 +11,10 @@
                     <ul *ngIf="_usuarioService.UsuarioActivo" class="nav pull-right">
                         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Bienvenido, {{_usuarioService.UsuarioActivo.nombre}} <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a [routerLink]="['/profile']"><i class="fa fa-user"></i> Mi perfil</a></li>
-                                <li><a [routerLink]="['/favoritos']"><i class="fa fa-heart"></i> Favoritos</a></li>
+                                <li><a type="button" [routerLink]="['/profile']"><i class="fa fa-user"></i> Mi perfil</a></li>
+                                <li><a  type="button"  [routerLink]="['/favoritos']"><i class="fa fa-heart"></i> Favoritos</a></li>
                                 <li class="divider"></li>
-                                <li><a (click)="cerrarSesion()"><i class="fa fa-close"></i> Cerrar Sesion</a></li>
+                                <li><a type="button" (click)="cerrarSesion()"><i class="fa fa-close"></i> Cerrar Sesion</a></li>
                             </ul>
                         </li>
                     </ul>

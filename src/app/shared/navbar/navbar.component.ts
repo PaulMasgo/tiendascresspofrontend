@@ -39,9 +39,11 @@ export class NavbarComponent implements OnInit {
   }
 
   verificarStorage(){
+    
     let user = localStorage.getItem('usuario');
     if(user){
       this._usuarioService.UsuarioActivo = JSON.parse(user);
+      console.log(this._usuarioService.UsuarioActivo);
     }
   }
 
@@ -56,7 +58,8 @@ export class NavbarComponent implements OnInit {
         this._usuarioService.UsuarioActivo = null;
         localStorage.removeItem('usuario');
         this._favoritoService.favoritos = [];
-        this.router.navigate(['/home']);
+        this.router.navigateByUrl('home');
+        swal('Sesión cerrada','Vuelve Pronto!','success');
       }
     })
   }

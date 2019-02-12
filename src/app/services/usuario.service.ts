@@ -27,4 +27,9 @@ export class UsuarioService {
     return this.http.put(url,{codigoRegistro:codigo}); 
    }
 
+   loginGoogle(token:string){
+    let url = URL_SERVICIOS + '/login/google' ;
+    return this.http.post(url,{token:token});
+   }
+
 }

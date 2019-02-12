@@ -4,6 +4,8 @@ import swal from 'sweetalert';
 import { Usuario } from '../../models/usuario.models';
 import { Router } from '@angular/router';
 
+declare const gapi:any;
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,7 +15,11 @@ export class LoginComponent implements OnInit {
 
   constructor(public _usuarioService:UsuarioService,public router:Router) { }
 
+  auth2:any;
+
+
   ngOnInit() {
+    this.googleInit();
   }
 
   inicioSesion(correo,password){
@@ -42,6 +48,42 @@ export class LoginComponent implements OnInit {
       }else{
         swal('Error','El usuario o contraseña son incorrectos','error')
       } 
+    })
+  }
+
+  googleInit(){
+    gapi.load('auth2',()=>{
+      this.auth2 = gapi.auth2.init({
+        client_id: '372675155090-hgttjr3lodmiq3gkn29le31e6emo8mc3.apps.googleusercontent.com',
+        cookiepolicy:'single_host_origin',
+        scope:'profile email'
+      });
+      this.attachSignin(document.getElementById('btnGoogle'));
+    });
+  }
+
+  attachSignin(element){
+    this.auth2.attachClickHandler(element,{},(googleuser)=>{
+      // let profile = googleuser.getBasicProfile();
+      let token = googleuser.getAuthResponse().id_token;
+      this._usuarioService.loginGoogle(token)
+      .subscribe((res:any)=>{
+        if(res.ok === true){
+            switch (res.usuario.estado) {
+              case 'inactivo':
+                swal('Cuenta Bloqueada','Para mas información comuniquese con nosotros','error');
+                this.router.navigate(['/contacto']);
+              break;
+            
+              default:
+                this._usuarioService.UsuarioActivo = res.usuario;
+                swal('Bienvenido', `Hola ${res.usuario.nombre}` ,'success');
+                localStorage.setItem('usuario',JSON.stringify(this._usuarioService.UsuarioActivo))
+              break;
+            }
+        }
+        this.router.navigate(['/home']); 
+      })
     })
   }
 
