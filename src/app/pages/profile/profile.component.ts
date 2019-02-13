@@ -19,7 +19,10 @@ export class ProfileComponent implements OnInit {
 
   ObtenerUsuario(){
     this.usuario = this._usuarioService.UsuarioActivo;
-    this.usuario.imagen = URL_SERVICIOS + '/img/usuarios/' + this.usuario.imagen
+
+    if((this.usuario.imagen.indexOf('https'))<0){
+      this.usuario.imagen = URL_SERVICIOS + '/img/usuarios/' + this.usuario.imagen
+    } 
     console.log(this.usuario.imagen);
   }
 }
