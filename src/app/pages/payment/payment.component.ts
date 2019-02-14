@@ -65,7 +65,7 @@ export class PaymentComponent implements OnInit {
 
   finalizarCompra(){
     let today = new Date().toISOString().slice(0, 10);
-    let venta = new Venta(today,this._usuarioService.UsuarioActivo);
+    let venta = new Venta(today,this._usuarioService.UsuarioActivo,this._carritoService.total);
     this._ventaService.nuevaVenta(venta)
     .subscribe((res:any)=> {
       if(res.ok ===true){

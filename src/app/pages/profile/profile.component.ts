@@ -10,7 +10,8 @@ import { URL_SERVICIOS } from '../../config/config.moule';
 })
 export class ProfileComponent implements OnInit {
 
-  usuario:Usuario;  
+  usuario:Usuario; 
+  ventana:string = 'ventas' 
   constructor(public _usuarioService:UsuarioService) { }
 
   ngOnInit() {
@@ -19,10 +20,15 @@ export class ProfileComponent implements OnInit {
 
   ObtenerUsuario(){
     this.usuario = this._usuarioService.UsuarioActivo;
-
     if((this.usuario.imagen.indexOf('https'))<0){
       this.usuario.imagen = URL_SERVICIOS + '/img/usuarios/' + this.usuario.imagen
     } 
     console.log(this.usuario.imagen);
   }
+
+  verVentas(){
+    
+  }
+
+
 }

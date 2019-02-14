@@ -39,7 +39,6 @@ export class NavbarComponent implements OnInit {
   }
 
   verificarStorage(){
-    
     let user = localStorage.getItem('usuario');
     if(user){
       this._usuarioService.UsuarioActivo = JSON.parse(user);

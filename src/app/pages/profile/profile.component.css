@@ -1,32 +1,76 @@
-.user-row {
-    margin-bottom: 14px;
-}
 
-.user-row:last-child {
-    margin-bottom: 0;
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+	line-height: .9;
+	font-weight: 700;
+	color: #333;
 }
-
-.dropdown-user {
-    margin: 13px 0;
-    padding: 5px;
+.profile-block{
+	margin:30px auto;
+	
+	overflow:hidden;
+    max-width: 300px;
+    
+	}
+.profile-block .user-heading {
+  background: #050505 none repeat scroll 0 0;
+  border-radius: 4px 4px 0 0;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
 }
-
-.dropdown-user:hover {
-    cursor: pointer;
+.profile-block .user-heading a img {
+	border-radius: 50%;
+	margin:auto auto 10px;
+	display: block;
+	height: 140px;
+	width: 140px;
+	border: 10px solid rgba(255, 255, 255, 0.3);
 }
-
-.table-user-information>tbody>tr {
-    border-top: 1px solid rgb(221, 221, 221);
+.profile-block .user-heading h1 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 22px;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
-
-.table-user-information>tbody>tr:first-child {
-    border-top: 0;
+.profile-block .user-heading p {
+  color: #fff;
+  font-size: 12px;
+  margin-bottom: 0;
+  text-align: center;
 }
-
-.table-user-information>tbody>tr>td {
-    border-top: 0;
+.profile-block ul{
+	padding:0;
+	margin:0;
+	}
+.profile-block ul > li {
+  border-bottom: 1px solid #ddd;
+  line-height: 30px;
+  margin-top: 0;
 }
-
-.toppad {
-    margin-top: 20px;
+.profile-block .nav > li > a {
+  background: #e7e7e7;
+  border-radius: 0;
+  color: #000;
+  display: block;
+  font-size: 14px;
+  padding: 6px 18px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+}
+.profile-block ul > li > a > i {
+  color: #000;
+  font-size: 16px;
+  padding-right: 10px;
+}
+.profile-block ul > li > a:hover, 
+.profile-block ul > li > a:focus, 
+.profile-block ul li.active a {
+  background: #fff !important;
+  border-radius: 0;
+  color: #000 !important;
 }

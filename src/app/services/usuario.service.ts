@@ -32,4 +32,9 @@ export class UsuarioService {
     return this.http.post(url,{token:token});
    }
 
+   actualizar(usuario:Usuario,id){
+      let url = URL_SERVICIOS + '/usuario/'+id;
+      return  this.http.put(url,usuario);
+   }
+
 }

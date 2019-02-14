@@ -14,6 +14,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { AddAddressComponent } from './pages/address/add-address/add-address.component';
+import { UpdateUserComponent } from './pages/update-user/update-user.component';
 
 const appRoutes :Routes = [
     {path:'productos',component:ProductosComponent},
@@ -30,6 +31,7 @@ const appRoutes :Routes = [
     {path:'product/:id',component:ViewproductComponent},
     {path:'addaddress/:estado',component:AddAddressComponent},
     {path:'favoritos',component:FavoritesComponent},
+    {path:'updateUser',component:UpdateUserComponent},
     {path: '',  redirectTo:'/home',pathMatch:'full'},
     {path:'**',component:NotfoundComponent}
     

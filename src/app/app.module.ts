@@ -28,6 +28,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { AddAddressComponent } from './pages/address/add-address/add-address.component';
+import { UpdateUserComponent } from './pages/update-user/update-user.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { AddAddressComponent } from './pages/address/add-address/add-address.com
     ProfileComponent,
     PaymentComponent,
     FavoritesComponent,
-    AddAddressComponent
+    AddAddressComponent,
+    UpdateUserComponent
   ],
   imports: [
     BrowserModule,
