@@ -9,8 +9,8 @@
                 </div>
             </h3><br>
             <div style="text-align: center">
-                <select class="btn btn-dark btn-block" *ngIf="direcion.length >= 1" >
-                     <option value="" *ngFor="let item of direcion"  >{{item.Direccion}} - {{item.Ubigeo.distrito}} - {{item.Ubigeo.provincia}}</option>
+                <select class="btn btn-dark btn-block"  (change)="direccionElejida($event.target.value)"  *ngIf="direcion.length >= 1" >
+                     <option value="" *ngFor="let item of direcion;let i = index"  [value]="i">{{item.Direccion}} - {{item.Ubigeo.distrito}} - {{item.Ubigeo.provincia}}</option>
                 </select><br>
                 <font style="vertical-align: inherit;" class="form-w3agile">
                     <font style="vertical-align: inherit;"><input type="button" [routerLink]="['/addaddress','pago']"  value="Agregar Nuevo"></font>

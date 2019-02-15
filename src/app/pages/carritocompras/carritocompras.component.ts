@@ -73,6 +73,6 @@ eliminar(producto:ProductoCarrito){
     this. total =0;
     this.suma();
     localStorage.setItem('Carrito',JSON.stringify(this.carritoService.carrito));
-}
+};
 
 }

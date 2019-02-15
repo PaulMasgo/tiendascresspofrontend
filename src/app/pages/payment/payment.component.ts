@@ -19,6 +19,7 @@ export class PaymentComponent implements OnInit {
   total:number;
   direcion:Direccion[];
   carrito :ProductoCarrito[];
+  indexDireccion:Number = 0;
 
   constructor(public _carritoService:CarritoService,
               public _direccionservice:AddressService,
@@ -62,6 +63,10 @@ export class PaymentComponent implements OnInit {
     }) 
   }
 
+  direccionElejida(index){
+    this.indexDireccion = index;
+    console.log(this.indexDireccion);
+  }
 
   finalizarCompra(){
     let today = new Date().toISOString().slice(0, 10);
