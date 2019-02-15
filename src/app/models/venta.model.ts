@@ -8,7 +8,8 @@ export class Venta {
         public estado ?:String,
         public boleta?:String,
         public codigo?:String,
-        public descuento?:Number
+        public descuento?:Number,
+        public direccion?:String
     ){
 
     }     

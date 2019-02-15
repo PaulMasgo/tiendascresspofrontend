@@ -19,7 +19,7 @@ export class PaymentComponent implements OnInit {
   total:number;
   direcion:Direccion[];
   carrito :ProductoCarrito[];
-  indexDireccion:Number = 0;
+  indexDireccion:number = 0;
 
   constructor(public _carritoService:CarritoService,
               public _direccionservice:AddressService,
@@ -70,7 +70,7 @@ export class PaymentComponent implements OnInit {
 
   finalizarCompra(){
     let today = new Date().toISOString().slice(0, 10);
-    let venta = new Venta(today,this._usuarioService.UsuarioActivo,this._carritoService.total);
+    let venta = new Venta(today,this._usuarioService.UsuarioActivo,this._carritoService.total,null,null,null,null,this.direcion[this.indexDireccion]._id);
     this._ventaService.nuevaVenta(venta)
     .subscribe((res:any)=> {
       if(res.ok ===true){

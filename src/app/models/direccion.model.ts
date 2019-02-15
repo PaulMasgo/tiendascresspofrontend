@@ -8,6 +8,7 @@ export class Direccion {
         public Ubigeo:Ubigeo,
         public Usuario:Usuario,
         public Referencia?:string,
+        public _id?:String
     ){
 
     }     

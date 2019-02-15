@@ -19,31 +19,36 @@
     </div>
         
     <div class="col-md-6" > 
-        <div style="padding: 15px" >
+        <div style="padding: 15px" *ngIf="ventana==='ventas'">
             <br>
             <h2>Compras Realizadas</h2> <br>
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
                     <th scope="col">N°</th>
-                    <th scope="col">Prenda</th>
-                    <th scope="col">Cantidad</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">Subtotal</th>
+                    <th scope="col">Codigo</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Monto</th>
+                    <th scope="col">Ver</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of carrito;let i = index">
+                    <tr *ngFor="let item of compras;let i = index">
                     <th scope="row">{{i+1}}</th>
-                    <td>{{item.nombre}}</td>
-                    <td style="text-align: center">{{item.cantidad}}</td>
-                    <td>S/. {{item.precio}}</td>
-                    <td>S/. {{item.precio  * item.cantidad}}</td>
+                    <td>{{item.codigo}}</td>
+                    <td style="text-align: center">{{item.Fecha}}</td>
+                    <td>S/. {{item.monto}}</td>
+                    <td>
+                            <div id="myModal" class="modal fade" role="dialog">
+                                    <div class="modal-dialog">
+                    
+                                        <app-favorites></app-favorites>
+                                    </div>
+                                  </div>
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Ver</button>
+                    </td>
                     </tr>
-                    <tr>
-                    <th scope="row" colspan="4" style="text-align: center">Total:</th> 
-                    <td> S/.</td>
-                    </tr>
+                    
                 </tbody>
                 </table>
         </div>
