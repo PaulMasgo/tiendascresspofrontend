@@ -30,6 +30,7 @@ import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { AddAddressComponent } from './pages/address/add-address/add-address.component';
 import { UpdateUserComponent } from './pages/update-user/update-user.component';
 import { DetallesVentaComponent } from './pages/detalles-venta/detalles-venta.component';
+import { UpdateAddressComponent } from './pages/update-address/update-address.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { DetallesVentaComponent } from './pages/detalles-venta/detalles-venta.co
     FavoritesComponent,
     AddAddressComponent,
     UpdateUserComponent,
-    DetallesVentaComponent
+    DetallesVentaComponent,
+    UpdateAddressComponent
   ],
   imports: [
     BrowserModule,

@@ -15,5 +15,15 @@ export class UbigeoService {
     return this.http.post(url,ubigeo);
   }
 
+  actualizar(ubigeo:Ubigeo,id){
+    let url = URL_SERVICIOS + '/ubigeo/' +id;
+    return this.http.put(url,ubigeo)
+  }
+  
+  eliminar(id){
+    let url = URL_SERVICIOS + '/ubigeo/' +id;
+    return this.http.delete(url)
+  }
+
 
 }

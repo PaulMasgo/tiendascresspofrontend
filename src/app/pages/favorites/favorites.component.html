@@ -6,33 +6,28 @@
   <br><br><br><br><br>
 </div>
 
-<div class="check-out" *ngIf="favoritos.length >= 1">
-  <div class="container">
-      <div class="spec ">
-          <h3>Productos Guardados</h3>
-          <div class="ser-t">
-              <b></b>
-              <span><i></i></span>
-              <b class="line"></b>
-          </div>
-      </div>
-      <table class="table ">
-          <tbody>
-              <tr>
-                  <th class="t-head head-it ">Prenda</th>
-                  <th class="t-head">Nombre</th>
-                  <th class="t-head">Precio</th>
-                  <th class="t-head">Acción</th>
-              </tr>
-              <tr class="cross" *ngFor="let item of favoritos;let i = index">
-                  <td class="t-data">
-                    <a href="single.html" class="at-in">
-                        <img [src]="item.Producto.imagen.principal | imagenes" class="img-50 img-circle" alt="">
-                    </a>
+<div *ngIf="favoritos.length >= 1" style="text-align: center">
+  <div >
+      <div>
+          <h2>Productos Guardados</h2>
+      </div><br>
+      <table style="width: 100%" class="table">
+              <thead>
+                  <tr style="background-color: black; color: white">
+                  <th  style="color: white;text-align: center">Prenda</th>
+                  <th  style="color: white;text-align: center"> Nombre</th>
+                  <th style="color: white;text-align: center">Precio</th>
+                  <th style="color: white;text-align: center">Acción</th>
+                    </tr>
+              </thead>
+              <tbody >
+              <tr  *ngFor="let item of favoritos;let i = index" class="active">
+                  <td>
+                        <img [src]="item.Producto.imagen.principal | imagenes"  style="height: 30px; width: 30px;" class="img-circle" alt="">
                   </td>
-                  <td class="t-data">{{item.Producto.nombre}}</td>
-                  <td class="t-data">S/.{{item.Producto.precio}}</td>
-                  <td class="t-data">
+                  <td >{{item.Producto.nombre}}</td>
+                  <td >S/.{{item.Producto.precio}}</td>
+                  <td >
                       <button type="button" class="btn btn-primary " (click)="eliminar(item._id,i)"> Eliminar </button> &nbsp;
                       <button type="button" class="btn btn-danger " [routerLink]="['/product',item.Producto._id]"  > Ver  </button>
                   </td>

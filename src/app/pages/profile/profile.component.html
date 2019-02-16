@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-5">
             <div class="profile-block" style="align-items: center">
                     <div class="panel text-center">
                       <div class="user-heading"> <a href="#"><img [src]="usuario.imagen" alt="" title=""></a>
@@ -8,32 +8,37 @@
                         <p>{{usuario.telefono}}</p>
                       </div>
                       <ul class="nav nav-pills nav-stacked">
-                        <li><a href="#"><i class="fa fa-user"></i>Editar datos</a></li>
-                        <li class="active"><a href="#"><i class="fa fa-pencil-square-o"></i>Compras</a></li>
-                        <li><a ><i class="fa fa-heart" aria-hidden="true"></i>Favoritos</a></li>
-                        <li><a href="#"><i class="fa fa-map" aria-hidden="true"></i>Direcciones</a></li>
+                        <li><a [routerLink]="['/updateUser']"  ><i class="fa fa-user"></i>Editar datos</a></li>
+                        <li class="active"><a type="button" (click)="ventas()" ><i class="fa fa-pencil-square-o"></i>Compras</a></li>
+                        <li><a type="button" (click)="favoritos()" ><i class="fa fa-heart" aria-hidden="true"></i>Favoritos</a></li>
+                        <li><a type="button" (click)="direcciones()" ><i class="fa fa-map" aria-hidden="true"></i>Direcciones</a></li>
                         <li><a href="#"><i class="fa fa-sign-out"></i>Logout</a></li>
                       </ul>
                     </div>
                   </div>
     </div>
         
-    <div class="col-md-6" > 
-        <div style="padding: 15px" *ngIf="ventana==='ventas'">
+    <div class="col-md-7" style="padding: 25px;" > 
+        <div *ngIf="ventana==='ventas'">
+                <div *ngIf="compras.length === 0" style="padding-top: 170px" >
+                        <h2>No tiene compras</h2><br>
+                        <h4>Aqui aparecerán todas sus compras</h4><br>
+                </div>
             <br>
-            <h2>Compras Realizadas</h2> <br>
+            <div *ngIf="compras.length >= 1">
+                 <h2>Compras Realizadas</h2> <br>
             <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                    <th scope="col">N°</th>
-                    <th scope="col">Codigo</th>
-                    <th scope="col">Fecha</th>
-                    <th scope="col">Monto</th>
-                    <th scope="col">Ver</th>
+                <thead class="table" style="background-color: black ;">
+                    <tr style="text-align: center">
+                    <th scope="col" style="color: white ;text-align: center">N°</th>
+                    <th scope="col"style="color: white;text-align: center">Codigo</th>
+                    <th scope="col"style="color: white;text-align: center">Fecha</th>
+                    <th scope="col"style="color: white;text-align: center">Monto</th>
+                    <th scope="col"style="color: white;text-align: center">Ver</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr *ngFor="let item of compras;let i = index">
+                <tbody > 
+                    <tr class="active"  style="text-align: center" *ngFor="let item of compras;let i = index">
                     <th scope="row">{{i+1}}</th>
                     <td>{{item.codigo}}</td>
                     <td style="text-align: center">{{item.Fecha}}</td>
@@ -53,6 +58,53 @@
                     
                 </tbody>
                 </table>
+            </div>
+           
+        </div>
+        <div *ngIf="ventana==='favoritos'">
+            <app-favorites></app-favorites>
+        </div>
+        <div *ngIf="ventana === 'direcciones'">
+            <br>
+            <div *ngIf="direcion.length === 0" style="padding-top: 170px" >
+                <h2>No tiene direcciones agregadas</h2><br>
+                <h4>Aqui aparecerán todas sus direcciones</h4><br>
+                <div style="width: 100%; text-align: center; padding-left: 280px" >
+                     <font style="vertical-align: inherit;"   class="form-w3agile col-md-5" >
+                    <font style="vertical-align: inherit;"><input type="button"  [routerLink]="['/addaddress','profile']"  value="Agregar direccion"></font>
+                </font>
+                </div>  
+            </div>
+            <div  *ngIf="direcion.length >= 1">
+                <h2>Direcciones registradas </h2><br>
+            <table class="table">
+                    <thead class="table" style="background-color: black ;">
+                        <tr style="text-align: center">
+                        <th scope="col" style="color: white ;text-align: center">N°</th>
+                        <th scope="col"style="color: white;text-align: center">Direccion</th>
+                        <th scope="col"style="color: white;text-align: center">Tipo</th>
+                        <th scope="col"style="color: white;text-align: center">Departamento</th>
+                        <th scope="col"style="color: white;text-align: center">Provincia</th>
+                        <th scope="col"style="color: white;text-align: center">Distrito</th>
+                        <th scope="col"style="color: white;text-align: center">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody > 
+                        <tr class="active"  style="text-align: center" *ngFor="let casa of direcion;let a = index">
+                        <th scope="row">{{a+1}}</th>
+                        <td>{{casa.Direccion}}</td>
+                        <td style="text-align: center">{{casa.Tipo}}</td>
+                        <td>{{casa.Ubigeo.departamento}}</td>
+                        <td>  {{casa.Ubigeo.provincia}}</td>
+                        <td>{{casa.Ubigeo.distrito}}</td>
+                        <button class="btn btn-danger glyphicon glyphicon-trash" (click)="eliminardireccion(casa._id)" > </button>&nbsp;
+                        <button class="btn btn-info glyphicon glyphicon-pencil" [routerLink]="['/updateAddress',casa._id]" ></button>
+                        </tr>
+                        
+                    </tbody>
+                    </table>
+            </div>
+            
         </div>
     </div>
 </div>

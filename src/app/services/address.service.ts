@@ -15,8 +15,26 @@ export class AddressService {
     return this.hhto.post(url,direccion);
   }
 
+  verdireccion(id){
+    let url = URL_SERVICIOS + '/direccion/una/' + id;
+    return this.hhto.get(url);
+  }
+
   obtenerdirecciones(usuario){
     let url = URL_SERVICIOS + '/direccion/'+usuario
     return this.hhto.get(url);
   } 
+
+  actualizarDireccion(direccion:Direccion,id){
+    let url = URL_SERVICIOS + '/direccion/' + id;
+    return this.hhto.put(url,direccion);
+  }
+
+  eliminarDireccion(id){
+    let url = URL_SERVICIOS + '/direccion/' + id;
+    return this.hhto.delete(url);
+  }
+
+  
+
 }

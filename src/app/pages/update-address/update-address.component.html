@@ -1,0 +1,48 @@
+<div class="login">
+    <div class="main-agileits">
+        <div class="form-w3agile">
+            <h3>
+                <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;">Actulizar datos de la Dirección</font>
+                </font>
+            </h3>
+            <h4>Por favor sutituya los datos que desea cambiar</h4><br>
+            <form action="#" method="post">
+                <div class="key">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <input type="text" name="Username" #Departamento required=""  [value]="direccion.Ubigeo.departamento" placeholder="Departamento">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="key">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <input type="text" name="Username" #Provincia required=""  [value]="direccion.Ubigeo.provincia"  placeholder="Provincia">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="key">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <input type="text" name="Username" #Distrito required="" [value]="direccion.Ubigeo.distrito" placeholder="Distrito">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="key">
+                    <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                    <input type="text" name="Email" #Direccion required=""  [value]="direccion.Direccion"  placeholder="Direccion">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="key">
+                    <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                    <input type="text" name="Password" #Referencia required="" [value]="direccion.Referencia"  placeholder="Referencia">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="key">
+                    <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                    <input type="text" name="Confirm Password" #Tipo required=""  [value]="direccion.Tipo"   placeholder="Tipo        Ejm:(casa,departamento,cuarto,etc)">
+                    <div class="clearfix"></div>
+                </div>
+                <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;"><input type="button" value="Actualizar Dirección" (click)="actualizarDireccion(Departamento.value,Provincia.value,Distrito.value,Direccion.value,Referencia.value,Tipo.value)"></font>
+                </font>
+            </form>
+        </div>
+    </div>
+  </div>
+  

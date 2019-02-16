@@ -12,7 +12,7 @@ export class DetallesVentaComponent implements OnInit {
 
   @Input() IdVenta:String;
   @Input() ViewVenta:Venta;
-   
+
   detalles:Detalle[]=[];
  
   constructor(public _ventaService:VentaService) { }
@@ -23,13 +23,10 @@ export class DetallesVentaComponent implements OnInit {
 
   verdetalles(){
     this._ventaService.detallesventa(this.IdVenta)
-    .subscribe((res:any) => {console.log(res);
+    .subscribe((res:any) => {
     this.detalles = res.detalle})
   }
 
-  venta(){
-    this._ventaService.verVenta(this.IdVenta)
-    .subscribe()
-  }
+
 
 }
