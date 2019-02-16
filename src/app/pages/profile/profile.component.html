@@ -39,13 +39,15 @@
                     <td style="text-align: center">{{item.Fecha}}</td>
                     <td>S/. {{item.monto}}</td>
                     <td>
-                            <div id="myModal" class="modal fade" role="dialog">
-                                    <div class="modal-dialog">
-                    
-                                        <app-favorites></app-favorites>
-                                    </div>
-                                  </div>
-                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Ver</button>
+                        <div [id]="item._id" class="modal fade" role="dialog" >
+                            <div class="modal-dialog" style="background-color: #fff;">
+                                <app-detalles-venta [IdVenta]="item._id" [ViewVenta]="item"></app-detalles-venta>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" [attr.data-target]="'#' + item._id">Ver</button>
                     </td>
                     </tr>
                     

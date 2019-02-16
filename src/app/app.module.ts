@@ -29,6 +29,7 @@ import { PaymentComponent } from './pages/payment/payment.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { AddAddressComponent } from './pages/address/add-address/add-address.component';
 import { UpdateUserComponent } from './pages/update-user/update-user.component';
+import { DetallesVentaComponent } from './pages/detalles-venta/detalles-venta.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { UpdateUserComponent } from './pages/update-user/update-user.component';
     PaymentComponent,
     FavoritesComponent,
     AddAddressComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    DetallesVentaComponent
   ],
   imports: [
     BrowserModule,

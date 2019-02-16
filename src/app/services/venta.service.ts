@@ -15,9 +15,14 @@ export class VentaService {
     return this.http.post(url,venta);
   }
 
-  verVenta(id:string){
+  verVenta(id:String){
     let url = URL_SERVICIOS + `/venta/${id}`;
     return this.http.get(url);
+   }
+
+   detallesventa(venta){
+     let url = URL_SERVICIOS + `/detalle/${venta}`
+     return this.http.get(url);
    }
 
 }
