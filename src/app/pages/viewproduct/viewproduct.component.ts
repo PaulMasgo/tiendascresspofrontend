@@ -58,7 +58,11 @@ export class ViewproductComponent implements OnInit {
 
     listar(){
       this._tallaservice.listar(this.id)
-      .subscribe((res:any) =>{this.tallas = res.tallas} )
+      .subscribe((res:any) =>{this.tallas = res.tallas;
+        let a = this.tallas.filter((item)=>{ return item.cantidad >= 1 })
+        this.tallas = a;
+        console.log(this.tallas);
+      })
     }
 
     addfavorite(){

@@ -24,6 +24,11 @@ export class ProductoService {
     return this.http.get(url);
   }
 
+  buscarProductoParametro(parametro){
+    let url = `${URL_SERVICIOS}/producto/buscar/${parametro}`
+    return this.http.get(url);
+  }
+
 }
 
 

@@ -4,8 +4,6 @@ import { Router } from '@angular/router';
 import { CarritoService } from '../../services/carrito.service';
 import { FavoritosService } from 'src/app/services/favoritos.service';
 import swal from 'sweetalert';
-declare var jquery:any;
-declare var $ :any;
 
 @Component({
   selector: 'app-navbar',
@@ -21,18 +19,6 @@ export class NavbarComponent implements OnInit {
               public _favoritoService:FavoritosService) { }
 
   ngOnInit() {
-    $(document).ready(function() {
-      $(".dropdown").hover(
-          function() {
-              $('.dropdown-menu', this).stop(true, true).slideDown("fast");
-              $(this).toggleClass('open');
-          },
-          function() {
-              $('.dropdown-menu', this).stop(true, true).slideUp("fast");
-              $(this).toggleClass('open');
-          }
-      );
-  });
   this.verificarStorage();
   this.cargarfavoritos();
   this.cargarCarro();

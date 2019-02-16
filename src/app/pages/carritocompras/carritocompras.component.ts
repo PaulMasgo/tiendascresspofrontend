@@ -14,7 +14,7 @@ import { UsuarioService } from '../../services/usuario.service';
 })
 export class CarritocomprasComponent implements OnInit {
 
-  constructor(public carritoService:CarritoService,public router:Router,public _usuarioService:UsuarioService) { }
+  constructor(public carritoService:CarritoService,public router:Router,public _usuarioService:UsuarioService,public _carritoService:CarritoService) { }
 
 
   productos:ProductoCarrito[]=[] ;
@@ -47,6 +47,11 @@ export class CarritocomprasComponent implements OnInit {
   }
 
   cargarCarro(){
+    let carrito = localStorage.getItem('Carrito');
+    if(carrito){
+      this._carritoService.carrito = JSON.parse(carrito);
+    }
+  
    this.productos = this.carritoService.carrito ;
   }
 
@@ -74,5 +79,7 @@ eliminar(producto:ProductoCarrito){
     this.suma();
     localStorage.setItem('Carrito',JSON.stringify(this.carritoService.carrito));
 };
+
+
 
 }

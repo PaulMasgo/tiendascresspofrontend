@@ -1,5 +1,6 @@
 import { Imagen } from './imagen.model';
 import { Producto } from './producto.model';
+import { Talla } from './talla.models';
 
 export class ProductoCarrito {
 
@@ -12,8 +13,8 @@ export class ProductoCarrito {
         public idproducto:string,
         public imagen:string,
         public producto:Producto,
-        public venta?:String
-
+        public venta?:String,
+        public tallaE?:Talla
  
     ){
     

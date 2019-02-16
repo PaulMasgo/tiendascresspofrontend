@@ -1,10 +1,38 @@
-<div class="content">
+<br>
+<div class="row"> 
+     <div class="col-md-8" style="padding: 40px;">
+        <div class="search-agileinfo " > 
+                <form>
+                    <h4 >Buscar</h4>
+                    <input type="search" name="Search" placeholder="Buscar prenda ..."  #parametro   (keyup)="buscarproductos(parametro.value)">
+                    <button type="button" (click)="buscarproductos(parametro.value)" class="btn btn-default search">  
+                        <i class="fa fa-search" aria-hidden="true"> </i>
+                    </button>
+                </form>
+            </div>
+    </div>
+    <div class="col-md-4" style="padding: 35px">
+        <div class="col-sm-6" style="padding: 10px"> 
+            <h5>Seleccione la categoria</h5>  <br>
+  
+    <select class="form-control" #Categoria (change)="Carproductocategoria(Categoria.value)" > 
+                <option value="Todo">Todo</option>
+                <option *ngFor="let item of categorias"  [value]="item._id" >{{item.nombre}}</option>
+            </select>  
+        </div>
+        <!-- <div class="col-sm-5"style="padding: 10px"> 
+                <h5>Seleccione el color </h5>  <br>
+                <select class="form-control" id="gender1">
+                    <option>Male</option>
+                </select>  
+            </div> -->
+    </div>
+  
+</div>
+
+<div >
     <div class="container">
-        <h1>Todos nuestros Productos</h1><br>
-        <ul class="resp-tabs-list">
-            <li class="resp-tab-item"><span>Todos</span></li>
-            <li class="resp-tab-item" *ngFor="let cat of categorias" (click)="Carproductocategoria(cat._id)"><span>{{cat.nombre}}</span></li>
-        </ul><br>
+        <h1>Nuestras Prendas</h1><br><br>
         <app-product *ngFor="let item of productos" [imagenprincipal]="item.imagen.principal" [imagenSecunadria]="item.imagen.lado1" [nombre]="item.nombre" [precio]="item.precio" [id]="item._id"></app-product>
     </div>
 </div>

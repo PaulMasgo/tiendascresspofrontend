@@ -14,4 +14,8 @@ export class TallaService {
     return this.http.get(url); 
   }
 
+  actualizarCantidad(id,cantidad){
+    let url = URL_SERVICIOS + '/talla/cantidad/' + id;
+    return this.http.put(url,{cantidad:cantidad});
+  }
 }

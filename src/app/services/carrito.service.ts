@@ -19,7 +19,7 @@ export class CarritoService {
   total:number;
   
   agregarProducto(producto:Producto,talla:Talla){
-    let carritoItem = new ProductoCarrito(producto.nombre,1,talla.cantidad,talla.nombre,producto.precio,producto._id,producto.imagen.principal,producto);
+    let carritoItem = new ProductoCarrito(producto.nombre,1,talla.cantidad,talla.nombre,producto.precio,producto._id,producto.imagen.principal,producto,null,talla);
     let encontrado = this.carrito.find(item=> item.idproducto == producto._id)
     if(encontrado && encontrado.talla === carritoItem.talla){
       // let index = this.carrito.findIndex(item => item.idProducto == producto._id);

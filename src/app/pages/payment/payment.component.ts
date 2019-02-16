@@ -8,6 +8,7 @@ import { VentaService } from 'src/app/services/venta.service';
 import { Venta } from 'src/app/models/venta.model';
 import { Detalle } from 'src/app/models/detalleVenta.models';
 import swal from 'sweetalert';
+import { TallaService } from 'src/app/services/talla.service';
 
 @Component({
   selector: 'app-payment',
@@ -24,7 +25,8 @@ export class PaymentComponent implements OnInit {
   constructor(public _carritoService:CarritoService,
               public _direccionservice:AddressService,
               public _usuarioService:UsuarioService,
-              public _ventaService:VentaService) { }
+              public _ventaService:VentaService,
+              public _tallaService:TallaService) { }
 
   ngOnInit() {
     this.carrito =  this._carritoService.carrito;
@@ -68,6 +70,11 @@ export class PaymentComponent implements OnInit {
     console.log(this.indexDireccion);
   }
 
+  actulizarCantidad(id,cantidad){
+    this._tallaService.actualizarCantidad(id,cantidad)
+    .subscribe(res => console.log(res))
+  }
+
   finalizarCompra(){
     let today = new Date().toISOString().slice(0, 10);
     let venta = new Venta(today,this._usuarioService.UsuarioActivo,this._carritoService.total,null,null,null,null,this.direcion[this.indexDireccion]._id);
@@ -77,6 +84,8 @@ export class PaymentComponent implements OnInit {
         for (let i = 0; i < this.carrito.length; i++) {
           let detalles = new Detalle(res.venta._id,this.carrito[i].precio,this.carrito[i].cantidad,this.carrito[i].producto,this.carrito[i].talla);
           console.log(detalles);
+          let cantidadfinal = this.carrito[i].tallaE.cantidad - this.carrito[i].cantidad;
+          this.actulizarCantidad(this.carrito[i].tallaE._id,cantidadfinal);
           this.RegistrarDetalles(detalles);
         }
         swal('¡Gracias por su compra!','Estaremos informando sobre el estado de su pedido','success')

@@ -23,7 +23,17 @@ export class ProductosComponent implements OnInit {
    this.CargarCategorias();
   }
   
-  
+
+ 
+  buscarproductos(paraemtro:String){
+    if (paraemtro.length ===0 ){
+      this.cargarProductos();
+    }else{
+        this._productoService.buscarProductoParametro(paraemtro)
+        .subscribe((res:any) => this.productos =  res.Productos)
+    }
+   
+  }
 
   CargarCategorias(){
     this._categoriaService.listarCategorias().subscribe
@@ -31,8 +41,15 @@ export class ProductosComponent implements OnInit {
   }
     
   Carproductocategoria(id:string){
-    this._productoService.listarProductoCategoria(id)
-    .subscribe((res:any)=> this.productos = res)
+    if(id === 'Todo'){
+      this.cargarProductos();
+    }else{
+        this._productoService.listarProductoCategoria(id)
+    .subscribe((res:any)=> {this.productos = res;
+      console.log(res);
+    })
+    }
+  
   }
 
   cargarProductos(){

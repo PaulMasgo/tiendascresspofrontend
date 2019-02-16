@@ -12,7 +12,6 @@
                         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Bienvenido, {{_usuarioService.UsuarioActivo.nombre}} <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a type="button" [routerLink]="['/profile']"><i class="fa fa-user"></i> Mi perfil</a></li>
-                                <li><a  type="button"  [routerLink]="['/favoritos']"><i class="fa fa-heart"></i> Favoritos</a></li>
                                 <li class="divider"></li>
                                 <li><a type="button" (click)="cerrarSesion()"><i class="fa fa-close"></i> Cerrar Sesion</a></li>
                             </ul>
@@ -39,71 +38,14 @@
                 <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                     <ul class="nav navbar-nav ">
                         <li><a [routerLink]="['/home']" routerLinkActive="router-link-active" class="hyper "><span>Principal</span></a></li>
-                        <li class="dropdown ">
-                            <a href="#" class="dropdown-toggle  hyper" data-toggle="dropdown"><span>Tienda<b class="caret"></b></span></a>
-                            <ul class="dropdown-menu multi">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <ul class="multi-column-dropdown">
-                                            <li><a [routerLink]="['/productos']"><i class="fa fa-angle-right" aria-hidden="true"></i>Todo</a></li>
-                                            <li><a href="men.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Camisas</a></li>
-                                            <li>
-                                                <a href="kids.html"> <i class="fa fa-angle-right" aria-hidden="true"></i>Pantalones</a>
-                                            </li>
-                                            <li><a href="party.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Polos</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <ul class="multi-column-dropdown">
-                                            <li><a href="casuals.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Chompas</a></li>
-                                            <li><a href="night.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Casacas</a></li>
-                                            <li><a href="formals.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Gorros</a></li>
-                                            <li><a href="inner.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Accesorios</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-4 w3l">
-                                        <a href="women.html"><img src="assets/imagenesCresspo/pantalomabesor.jpg" class="img-responsive" alt=""></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown"><span> Nuestro blog <b class="caret"></b></span></a>
-                            <ul class="dropdown-menu multi multi1">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <ul class="multi-column-dropdown">
-                                            <li><a href="jewellery.html"><i class="fa fa-angle-right" aria-hidden="true"></i>lNoticias</a></li>
-                                            <li><a href="watches.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Tips</a></li>
-                                            <li><a href="cosmetics.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Recomendaciones</a></li>
-                                            <li><a href="deos.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Moda mundial</a></li>
-                                            <li><a href="deos.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Moda mundial</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-4 w3l">
-                                        <a href="jewellery.html"><img src="assets/imagenesCresspo/logoCresspomen.jpg" class="img-responsive" alt=""></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </ul>
-                        </li>
+                        <li><a [routerLink]="['/productos']" routerLinkActive="router-link-active" class="hyper" ><span>Tienda</span></a></li>
                         <li><a [routerLink]="['/about']" routerLinkActive="router-link-active" class="hyper"><span>Acerca de nosotros</span></a></li>
                         <li><a [routerLink]="['/contacto']" routerLinkActive="router-link-active" class="hyper"><span>Contactanos</span></a></li>
                     </ul>
                 </div>
             </nav>
         </div>
-        <div class="col-md-4 search-agileinfo">
-            <form action="#" method="post">
-                <input type="search" name="Search" placeholder="Buscar prenda ..." required="">
-                <button type="submit" class="btn btn-default search" aria-label="Left Align">
-                        
-					<i class="fa fa-search" aria-hidden="true"> </i>
-				</button>
-            </form>
-        </div>
-        <div class="col-md-1 cart-wthree">
+        <div class="col-md-1 cart-wthree" style="float: right">
             <div class="cart">
                 <form action="#" method="post" class="last">
                     <input type="hidden" name="cmd" value="_cart" />

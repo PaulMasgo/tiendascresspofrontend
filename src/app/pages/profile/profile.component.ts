@@ -8,6 +8,8 @@ import { AddressService } from 'src/app/services/address.service';
 import { Direccion } from 'src/app/models/direccion.model';
 import { UbigeoService } from 'src/app/services/ubigeo.service';
 import swal from 'sweetalert';
+import { Router } from '@angular/router';
+import { FavoritosService } from 'src/app/services/favoritos.service';
 
 @Component({
   selector: 'app-profile',
@@ -20,10 +22,15 @@ export class ProfileComponent implements OnInit {
   compras:Venta[];
   direcion:Direccion[];
   ventana:string = 'ventas' 
+
+  
+
   constructor(public _usuarioService:UsuarioService,
               public _ventaService:VentaService,
               public _direccionservice:AddressService,
-              public _ubigeoService:UbigeoService) { }
+              public _ubigeoService:UbigeoService,
+              public router:Router,
+              public _favoritoService:FavoritosService) { }
 
   ngOnInit() {
     this.ObtenerUsuario();
@@ -77,6 +84,23 @@ export class ProfileComponent implements OnInit {
         .subscribe((res:any)=>{
           swal('Realizado','La direccion ha sido eliminada','success')
         })
+      }
+    })
+  }
+
+  cerrarSesion(){
+    swal({
+      title:'¿Desea cerrar la sesión?',
+      icon:'info',
+      buttons:[true,true],
+      dangerMode:true
+    }).then((res)=>{
+      if(res){
+        this._usuarioService.UsuarioActivo = null;
+        localStorage.removeItem('usuario');
+        this._favoritoService.favoritos = [];
+        this.router.navigateByUrl('home');
+        swal('Sesión cerrada','Vuelve Pronto!','success');
       }
     })
   }
