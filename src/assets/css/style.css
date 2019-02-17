@@ -2199,7 +2199,7 @@ p.single-price-text {
 }
 
 .collpse.tabs .panel-default {
-    border-color: #37a1f3;
+    border-color: #000000;
 }
 
 .collpse.tabs .panel-body {
@@ -2211,7 +2211,7 @@ p.single-price-text {
 
 .collpse.tabs .panel-default>.panel-heading {
     padding: 0;
-    background: #37a1f3;
+    background: #000000;
 }
 
 .pa_italic span.fa-arrow {

@@ -3,6 +3,8 @@ import { ProductoService } from '../../services/producto.service';
 import { Producto } from '../../models/producto.model';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { ActivatedRoute } from '@angular/router';
+import { PagosService } from 'src/app/services/pagos.service';
 
 @Component({
   selector: 'app-home',
@@ -15,10 +17,27 @@ export class HomeComponent implements OnInit {
   productos:Producto[];
 
   constructor(public _productoService:ProductoService,
-              public _usuarioService:UsuarioService) { }
+              public _usuarioService:UsuarioService,
+              public _codigoService:PagosService,
+              public router:ActivatedRoute) { }
 
   ngOnInit() {
     this.cargarProductos();
+    this.verificarPago();
+  }
+
+  verificarPago(){
+    let codigo;
+    this.router.queryParams.subscribe(params => {
+          codigo = params['paymentId'];
+      });
+      if(codigo){
+        this._codigoService.vercodigo(codigo)
+        .subscribe((res:any) => {
+          swal(`Orden N° ${res.codigo._id}  completada`,'','success');
+        })
+        
+      }
   }
 
   cargarProductos(){

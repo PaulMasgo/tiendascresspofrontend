@@ -9,6 +9,9 @@ import { Venta } from 'src/app/models/venta.model';
 import { Detalle } from 'src/app/models/detalleVenta.models';
 import swal from 'sweetalert';
 import { TallaService } from 'src/app/services/talla.service';
+import { PagosService } from 'src/app/services/pagos.service';
+import { ActivatedRoute } from '@angular/router';
+import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-payment',
@@ -26,13 +29,27 @@ export class PaymentComponent implements OnInit {
               public _direccionservice:AddressService,
               public _usuarioService:UsuarioService,
               public _ventaService:VentaService,
-              public _tallaService:TallaService) { }
+              public _tallaService:TallaService,
+              public _pagoService:PagosService,
+              public route:ActivatedRoute) { }
 
   ngOnInit() {
     this.carrito =  this._carritoService.carrito;
     console.log(this.carrito);
     this. total = this._carritoService.total
     this.obtenerDireciones();
+    this.CancelarOrden();
+  }
+
+  CancelarOrden(){
+      let codigo; 
+      this.route.queryParams.subscribe(params => {
+        codigo = params['token'];
+    });
+    if(codigo){
+      swal(`Orden N° ${codigo}  cancelada`,'','error');
+    }
+    
   }
 
   obtenerDireciones(){
@@ -73,6 +90,12 @@ export class PaymentComponent implements OnInit {
   actulizarCantidad(id,cantidad){
     this._tallaService.actualizarCantidad(id,cantidad)
     .subscribe(res => console.log(res))
+  }
+
+  pagar(){
+    this._pagoService.pago(888800)
+    .subscribe((res:any) => {swal(`${res.ruta}`);
+    window.location.href = res.ruta});
   }
 
   finalizarCompra(){
