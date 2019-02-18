@@ -16,9 +16,10 @@ export class CarritoService {
   constructor(private http:HttpClient) { }
 
   carrito:ProductoCarrito[]=[];
-  total:number;
+  total:number = 0;
   
   agregarProducto(producto:Producto,talla:Talla){
+    localStorage.setItem('Total',this.total.toString());
     let carritoItem = new ProductoCarrito(producto.nombre,1,talla.cantidad,talla.nombre,producto.precio,producto._id,producto.imagen.principal,producto,null,talla);
     let encontrado = this.carrito.find(item=> item.idproducto == producto._id)
     if(encontrado && encontrado.talla === carritoItem.talla){

@@ -39,10 +39,11 @@ export class LoginComponent implements OnInit {
               break;
 
           default:
-            this._usuarioService.UsuarioActivo = res.usuario;
+          this._usuarioService.UsuarioActivo = res.usuario; 
+          
             localStorage.setItem('usuario',JSON.stringify(this._usuarioService.UsuarioActivo));
-            swal('Bienvenido', `Hola ${res.usuario.nombre}` ,'success');
-            this.router.navigate(['/home']);
+            this.router.navigateByUrl('/');
+            swal('Bienvenido', `Hola ${this._usuarioService.UsuarioActivo.nombre}` ,'success');
             break;
         }
       }else{
@@ -76,8 +77,10 @@ export class LoginComponent implements OnInit {
               break;
             
               default:
-              this._usuarioService.UsuarioActivo = res.usuario;
-                swal('Bienvenido', `Hola ${res.usuario.nombre}` ,'success');
+                swal('Bienvenido', `Hola ${res.usuario.nombre}` ,'success')
+                .then(res =>{
+                  this._usuarioService.UsuarioActivo = res.usuario;
+                })
                 localStorage.setItem('usuario',JSON.stringify(res.usuario))
                 this.router.navigate(['/home']);
               break;

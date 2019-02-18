@@ -57,8 +57,12 @@ export class NavbarComponent implements OnInit {
 
   cargarCarro(){
     let carrito = localStorage.getItem('Carrito');
+    let tot = localStorage.getItem('Total')
     if(carrito){
       this._carritoService.carrito = JSON.parse(carrito);
+    }
+    if(tot){
+      this._carritoService.total =  Number(tot);
     }
   }
 

@@ -10,7 +10,8 @@ export class Venta {
         public codigo?:String,
         public descuento?:Number,
         public direccion?:String,
-        public _id?:string
+        public _id?:string,
+        public tipo?:string,
     ){
 
     }     
