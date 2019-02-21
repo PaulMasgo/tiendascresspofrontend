@@ -7,21 +7,19 @@
               </font>
           </h3>
           <form action="#" method="post">
-              <div class="key">
-                  <i class="fa fa-map-marker" aria-hidden="true"></i>
-                  <input type="text" name="Username" #Departamento required="" placeholder="Departamento">
-                  <div class="clearfix"></div>
-              </div>
-              <div class="key">
-                  <i class="fa fa-map-marker" aria-hidden="true"></i>
-                  <input type="text" name="Username" #Provincia required="" placeholder="Provincia">
-                  <div class="clearfix"></div>
-              </div>
-              <div class="key">
-                  <i class="fa fa-map-marker" aria-hidden="true"></i>
-                  <input type="text" name="Username" #Distrito required="" placeholder="Distrito">
-                  <div class="clearfix"></div>
-              </div>
+              
+              <select  #departamentos (change)="provincias(departamentos.value)"  class="btn btn-block btn-default" >
+                <option > Primero seleccione el departamento</option>
+                <option *ngFor="let item of Departamentos" [value]="item.id_ubigeo" >{{item.nombre_ubigeo}}</option>
+            </select><br>
+            <select   #provincia (change)="distritos(provincia.value)" class="btn btn-block btn-default" >
+                <option > Segundo seleccione su provincia</option>
+                <option *ngFor="let provin of Provincias" [value]="provin.id_ubigeo" >{{provin.nombre_ubigeo}}</option>
+            </select><br>
+            <select class="btn btn-block btn-default" #districs (change)="selectDistrict(districs.value)" >
+                <option > Tercero seleccione su Dsitrito</option>
+                <option *ngFor="let dist of Distritos" [value]="dist.id_ubigeo" >{{dist.nombre_ubigeo}}</option>
+            </select><br>
               <div class="key">
                   <i class="fa fa-location-arrow" aria-hidden="true"></i>
                   <input type="text" name="Email" #Direccion required="" placeholder="Direccion">
@@ -38,7 +36,7 @@
                   <div class="clearfix"></div>
               </div>
               <font style="vertical-align: inherit;">
-                  <font style="vertical-align: inherit;"><input type="button" value="Registrar Dirección" (click)="regitrarDireccion(Departamento.value,Provincia.value,Distrito.value,Direccion.value,Referencia.value,Tipo.value)"></font>
+                  <font style="vertical-align: inherit;"><input type="button" value="Registrar Dirección" (click)="regitrarDireccion(Direccion.value,Referencia.value,Tipo.value)"></font>
               </font>
           </form>
       </div>

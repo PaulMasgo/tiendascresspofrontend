@@ -26,6 +26,10 @@
             <td>S/.{{item.precio}}</td>
             <td>S/. {{item.cantidad * item.precio}}</td>
         </tr>
+        <tr *ngIf="ViewVenta.descuento > 0" >
+          <td colspan="5"  style="text-align: center">Descuento: </td>
+          <td>S/.{{ViewVenta.descuento}}</td>
+        </tr>
         <tr>
           <td colspan="5"  style="text-align: center">Total: </td>
           <td>S/.{{ViewVenta.monto}}</td>

@@ -624,6 +624,8 @@ ul.resp-tabs-list li:nth-child(3):after {
 }
 
 .product-img {
+    width: 200px;
+    height: 200px;
     position: relative;
     box-shadow: 0 0 1px #bbb;
     padding: 10px;

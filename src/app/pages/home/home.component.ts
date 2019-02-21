@@ -17,6 +17,8 @@ export class HomeComponent implements OnInit {
   cuponvalido:Cupon;
   productos:Producto[];
 
+  
+
   constructor(public _productoService:ProductoService,
               public _usuarioService:UsuarioService,
               public _cuponService:CuponService) { }
@@ -28,7 +30,10 @@ export class HomeComponent implements OnInit {
 
   cargarProductos(){
     this._productoService.buscarProductos()
-    .subscribe((res:any) => this.productos = res.Productos)
+    .subscribe((res:any) => { 
+        this.productos = res.Productos.reverse();
+        this.productos.splice(4)
+    })
   }
 
   Cargarcupones(){  

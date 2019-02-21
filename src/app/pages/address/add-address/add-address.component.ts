@@ -15,6 +15,12 @@ import { ActivatedRoute ,Route, Router} from '@angular/router';
 export class AddAddressComponent implements OnInit {
 
   estado:string;
+  Departamentos:any[];
+  Provincias:any[];
+  Distritos:any[];
+  DepartamentosSeleccionado:any;
+  ProvinciasSeleccionado:any;
+  DistritosSeleccionado:any;
 
   constructor(private _direccionService:AddressService,
               private _ubigeoService:UbigeoService,
@@ -23,13 +29,39 @@ export class AddAddressComponent implements OnInit {
               private router:Router) { }
 
   ngOnInit() {
+    this.departamentos();
     this.estado = this.route.snapshot.paramMap.get('estado');
   }
 
 
+  departamentos(){
+    this._ubigeoService.listarDepartamentos()
+    .subscribe((res:any) => this.Departamentos = res)}
 
-  regitrarDireccion(departamento,provincia,distrito,direccio,referenia,tipo){
-    let campos = [departamento,provincia,distrito,direccio,referenia,tipo];
+  provincias(id){
+    this._ubigeoService.listarProvincias(id)
+    .subscribe((res:any) =>{ this.Provincias = res;
+      this.DepartamentosSeleccionado = this.Departamentos.find(item => item.id_ubigeo === id)
+      console.log(this.DepartamentosSeleccionado.nombre_ubigeo);
+    })
+  }
+
+  distritos(id){
+    this._ubigeoService.listarDistritos(id)
+    .subscribe((res:any) => {
+        this.Distritos = res;
+        this.ProvinciasSeleccionado = this.Provincias.find(item => item.id_ubigeo === id);
+        console.log(this.ProvinciasSeleccionado.nombre_ubigeo);
+    })
+  }
+
+  selectDistrict(id){
+    this.DistritosSeleccionado = this.Distritos.find(item => item.id_ubigeo === id);
+    console.log(this.DistritosSeleccionado.nombre_ubigeo);
+  }
+
+  regitrarDireccion(direccio,referenia,tipo){
+    let campos = [this.DepartamentosSeleccionado.nombre_ubigeo,this.ProvinciasSeleccionado.nombre_ubigeo,this.DistritosSeleccionado.nombre_ubigeo,direccio,referenia,tipo];
     let valor = true;
     for (const item of campos) {
         if(item.length<=0){
@@ -38,7 +70,7 @@ export class AddAddressComponent implements OnInit {
     };
 
     if(valor === true){
-      let ubigeo = new Ubigeo(departamento,provincia,distrito); 
+      let ubigeo = new Ubigeo(this.DepartamentosSeleccionado.nombre_ubigeo,this.ProvinciasSeleccionado.nombre_ubigeo,this.DistritosSeleccionado.nombre_ubigeo); 
         this._ubigeoService.registrar(ubigeo)
         .subscribe((res:any)=>{
           if(res.ubigeo){

@@ -20,6 +20,7 @@ import { CuponService } from 'src/app/services/cupon.service';
 })
 export class PaymentComponent implements OnInit {
 
+  envio:number = 15;
   total:number;
   direcion:Direccion[];
   carrito :ProductoCarrito[];
@@ -64,6 +65,11 @@ export class PaymentComponent implements OnInit {
   
 
   tipoPago(tipo){
+    if(tipo === 'tienda'){
+      this.envio = 0
+    }else{
+      this.envio = 15
+    }
     this.tipoVenta = tipo;
     console.log(this.tipoVenta);
   }
@@ -169,7 +175,7 @@ export class PaymentComponent implements OnInit {
 
   finalizarCompra(){
     let today = new Date().toISOString().slice(0, 10);
-    let venta = new Venta(today,this._usuarioService.UsuarioActivo,(this._carritoService.total + 15 - this.descuento),null,null,null,this.descuento,this.direcion[this.indexDireccion]._id,null,this.tipoVenta);
+    let venta = new Venta(today,this._usuarioService.UsuarioActivo,(this._carritoService.total + this.envio - this.descuento),null,null,null,this.descuento,this.direcion[this.indexDireccion]._id,null,this.tipoVenta);
     this._ventaService.nuevaVenta(venta)
     .subscribe((res:any)=> {
       console.log(res);

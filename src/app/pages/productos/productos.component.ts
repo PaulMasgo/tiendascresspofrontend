@@ -14,6 +14,7 @@ export class ProductosComponent implements OnInit {
 
   productos:Producto[];
   categorias:Categoria[];
+  filtro:string;
 
   constructor(public _productoService:ProductoService,public _carritoService:CarritoService,public _categoriaService:CategoriaService) { }
 
@@ -23,6 +24,10 @@ export class ProductosComponent implements OnInit {
    this.CargarCategorias();
   }
   
+
+  cambiarfiltro(filtro){
+    this.filtro = filtro;
+  }
 
  
   buscarproductos(paraemtro:String){
@@ -35,6 +40,19 @@ export class ProductosComponent implements OnInit {
    
   }
 
+  
+  Colores(id:string){
+    if(id === 'Todo'){
+      this.cargarProductos();
+    }else{
+        this._productoService.listarProductoColor(id)
+        .subscribe((res:any)=> {this.productos = res;
+        console.log(res);
+    })
+    }
+  }
+
+
   CargarCategorias(){
     this._categoriaService.listarCategorias().subscribe
     ((res:any) => this.categorias = res)
@@ -45,8 +63,8 @@ export class ProductosComponent implements OnInit {
       this.cargarProductos();
     }else{
         this._productoService.listarProductoCategoria(id)
-    .subscribe((res:any)=> {this.productos = res;
-      console.log(res);
+        .subscribe((res:any)=> {this.productos = res;
+        console.log(res);
     })
     }
   

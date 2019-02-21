@@ -29,6 +29,11 @@ export class ProductoService {
     return this.http.get(url);
   }
 
+  listarProductoColor(id:string){
+    let url = `${URL_SERVICIOS}/producto/color/${id}`
+    return this.http.get(url);
+  }
+
 }
 
 

@@ -1,6 +1,6 @@
 <br>
 <div class="row"> 
-     <div class="col-md-8" style="padding: 40px;">
+     <div class="col-md-6" style="padding: 40px;">
         <div class="search-agileinfo " > 
                 <form>
                     <h4 >Buscar</h4>
@@ -12,20 +12,33 @@
             </div>
     </div>
     <div class="col-md-4" style="padding: 35px">
-        <div class="col-sm-6" style="padding: 10px"> 
-            <h5>Seleccione la categoria</h5>  <br>
-  
-    <select class="form-control" #Categoria (change)="Carproductocategoria(Categoria.value)" > 
+    <div class="col-sm-6" style="padding: 10px"> 
+            <h5>Filtrar por:</h5>  <br>
+            <select class="form-control" #fil (change)="cambiarfiltro(fil.value)" > 
+                <option value="Todo">Todo</option>
+                <option value="Categoria" >Categoria</option>
+                <option value="Color" >Color</option>
+                <option value="Precio" >Precio</option>
+            </select>  
+        </div>
+        <div *ngIf="filtro === 'Categoria'" class="col-sm-6" style="padding: 10px"> 
+            <h5>Buscar por categoria</h5>  <br>
+            <select class="form-control" #Categori (change)="Carproductocategoria(Categori.value)" > 
                 <option value="Todo">Todo</option>
                 <option *ngFor="let item of categorias"  [value]="item._id" >{{item.nombre}}</option>
             </select>  
         </div>
-        <!-- <div class="col-sm-5"style="padding: 10px"> 
-                <h5>Seleccione el color </h5>  <br>
-                <select class="form-control" id="gender1">
-                    <option>Male</option>
+        <div *ngIf="filtro === 'Color'"  class="col-sm-6" style="padding: 10px"> 
+                <h5>Busque por Color</h5>  <br>
+                <select class="form-control" #Colors (change)="Colores(Colors.value)" > 
+                    <option value="Todo">Todo</option>
+                    <option value="Plomo">Plomo</option>
+                    <option value="Azul">Azul</option>
+                    <option value="Negro">Negro</option>
+                    <option value="Verde">Verde</option>    
+                    <option value="Celeste">Celeste</option>                        
                 </select>  
-            </div> -->
+            </div>
     </div>
   
 </div>
@@ -34,5 +47,8 @@
     <div class="container">
         <h1>Nuestras Prendas</h1><br><br>
         <app-product *ngFor="let item of productos" [imagenprincipal]="item.imagen.principal" [imagenSecunadria]="item.imagen.lado1" [nombre]="item.nombre" [precio]="item.precio" [id]="item._id"></app-product>
+    </div>
+    <div *ngIf="!productos">
+        <h1>Ninguna prenda coinicde con la busqueda</h1>
     </div>
 </div>

@@ -63,7 +63,7 @@
           </tr>
           <tr>
             <th scope="row" colspan="4" style="text-align: center">Costo de envio:</th> 
-            <td> S/. 15</td>
+            <td> S/. {{envio}}</td>
           </tr>
           <tr *ngIf="descuento > 0">
             <th scope="row" colspan="4" style="text-align: center">Descuento:</th> 
@@ -71,7 +71,7 @@
           </tr>
           <tr>
             <th scope="row" colspan="4" style="text-align: center">Total:</th> 
-            <td> S/. {{_carritoService.total + 15 - descuento}}</td>
+            <td> S/. {{ _carritoService.total + envio - descuento | number }}</td>
           </tr>
         </tbody>
         

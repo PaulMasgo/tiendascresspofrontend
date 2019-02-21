@@ -83,6 +83,7 @@ export class ProfileComponent implements OnInit {
         this._direccionservice.eliminarDireccion(id)
         .subscribe((res:any)=>{
           swal('Realizado','La direccion ha sido eliminada','success')
+          .then(res =>{ this.obtenerDireciones()})
         })
       }
     })
